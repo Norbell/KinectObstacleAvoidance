@@ -1,0 +1,1674 @@
+/***** General informations *****/
+Sensor Resolution -->	WxH: 512x424
+Sensor Min and Max -->	min: 500 max: 4500
+1 Meter --> Px: -1.42347 Py: 1.12825 Pz: 1.853
+1 Meter --> Px: -1.17078 Py: 0.931576 Pz: 1.532
+1 Meter --> Px: 0.803557 Py: 0.784268 Pz: 1.349
+1 Meter --> Px: 0.787615 Py: 0.754323 Pz: 1.294
+1 Meter --> Px: 0.779615 Py: 0.743183 Pz: 1.274
+1 Meter --> Px: 0.912765 Py: 0.646894 Pz: 1.263
+1 Meter --> Px: 0.906376 Py: 0.638751 Pz: 1.255
+1 Meter --> Px: 0.901446 Py: 0.631682 Pz: 1.249
+1 Meter --> Px: 0.895234 Py: 0.620188 Pz: 1.242
+1 Meter --> Px: 0.882404 Py: 0.610214 Pz: 1.231
+1 Meter --> Px: 0.884581 Py: 0.60928 Pz: 1.228
+1 Meter --> Px: 0.873978 Py: 0.600888 Pz: 1.22
+1 Meter --> Px: 0.875389 Py: 0.599458 Pz: 1.216
+1 Meter --> Px: 0.868433 Py: 0.593598 Pz: 1.213
+1 Meter --> Px: 0.866935 Py: 0.590211 Pz: 1.205
+1 Meter --> Px: 0.857893 Py: 0.582959 Pz: 1.199
+1 Meter --> Px: 0.852027 Py: 0.576663 Pz: 1.185
+1 Meter --> Px: 0.842367 Py: 0.569035 Pz: 1.178
+1 Meter --> Px: 0.843611 Py: 0.567602 Pz: 1.174
+1 Meter --> Px: 0.828536 Py: 0.558611 Pz: 1.165
+1 Meter --> Px: 0.831154 Py: 0.558132 Pz: 1.163
+1 Meter --> Px: 0.834493 Py: 0.55814 Pz: 1.162
+1 Meter --> Px: 0.823798 Py: 0.552105 Pz: 1.159
+1 Meter --> Px: 0.831134 Py: 0.552578 Pz: 1.158
+1 Meter --> Px: 0.81722 Py: 0.546608 Pz: 1.156
+1 Meter --> Px: 0.816064 Py: 0.542541 Pz: 1.155
+1 Meter --> Px: 0.826851 Py: 0.539837 Pz: 1.154
+1 Meter --> Px: 0.821693 Py: 0.535328 Pz: 1.153
+1 Meter --> Px: 0.819948 Py: 0.532061 Pz: 1.145
+1 Meter --> Px: -0.377026 Py: 0.23606 Pz: 0.508
+1 Meter --> Px: -0.372185 Py: 0.220059 Pz: 0.504
+1 Meter --> Px: -0.369493 Py: 0.21788 Pz: 0.503
+1 Meter --> Px: -0.36885 Py: 0.21523 Pz: 0.5
+/***** Values per Frame *****/
+Frame:	1
+Errors (Not measurable):	89268
+Useable Pixels:	127820
+Useable Pixels(%):	58.8793
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	2
+Errors (Not measurable):	175112
+Useable Pixels:	131244
+Useable Pixels(%):	60.4566
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	3
+Errors (Not measurable):	257941
+Useable Pixels:	134259
+Useable Pixels(%):	61.8454
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	4
+Errors (Not measurable):	337449
+Useable Pixels:	137580
+Useable Pixels(%):	63.3752
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	5
+Errors (Not measurable):	417671
+Useable Pixels:	136866
+Useable Pixels(%):	63.0463
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	6
+Errors (Not measurable):	498023
+Useable Pixels:	136736
+Useable Pixels(%):	62.9864
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	7
+Errors (Not measurable):	577546
+Useable Pixels:	137565
+Useable Pixels(%):	63.3683
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	8
+Errors (Not measurable):	657411
+Useable Pixels:	137223
+Useable Pixels(%):	63.2108
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	9
+Errors (Not measurable):	745271
+Useable Pixels:	129228
+Useable Pixels(%):	59.5279
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	10
+Errors (Not measurable):	837266
+Useable Pixels:	125093
+Useable Pixels(%):	57.6232
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	11
+Errors (Not measurable):	933659
+Useable Pixels:	120695
+Useable Pixels(%):	55.5973
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	12
+Errors (Not measurable):	1032755
+Useable Pixels:	117992
+Useable Pixels(%):	54.3522
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	13
+Errors (Not measurable):	1137500
+Useable Pixels:	112343
+Useable Pixels(%):	51.75
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	14
+Errors (Not measurable):	1246272
+Useable Pixels:	108316
+Useable Pixels(%):	49.895
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	15
+Errors (Not measurable):	1353293
+Useable Pixels:	110067
+Useable Pixels(%):	50.7016
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	16
+Errors (Not measurable):	1458183
+Useable Pixels:	112198
+Useable Pixels(%):	51.6832
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	17
+Errors (Not measurable):	1561619
+Useable Pixels:	113652
+Useable Pixels(%):	52.353
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	18
+Errors (Not measurable):	1661900
+Useable Pixels:	116807
+Useable Pixels(%):	53.8063
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	19
+Errors (Not measurable):	1759811
+Useable Pixels:	119177
+Useable Pixels(%):	54.898
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	20
+Errors (Not measurable):	1853549
+Useable Pixels:	123350
+Useable Pixels(%):	56.8203
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	21
+Errors (Not measurable):	1945019
+Useable Pixels:	125618
+Useable Pixels(%):	57.865
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	22
+Errors (Not measurable):	2034651
+Useable Pixels:	127456
+Useable Pixels(%):	58.7117
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	23
+Errors (Not measurable):	2123798
+Useable Pixels:	127941
+Useable Pixels(%):	58.9351
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	24
+Errors (Not measurable):	2210143
+Useable Pixels:	130743
+Useable Pixels(%):	60.2258
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	25
+Errors (Not measurable):	2293488
+Useable Pixels:	133743
+Useable Pixels(%):	61.6077
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	26
+Errors (Not measurable):	2377829
+Useable Pixels:	132747
+Useable Pixels(%):	61.1489
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	27
+Errors (Not measurable):	2464020
+Useable Pixels:	130897
+Useable Pixels(%):	60.2967
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	28
+Errors (Not measurable):	2551458
+Useable Pixels:	129650
+Useable Pixels(%):	59.7223
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	29
+Errors (Not measurable):	2640992
+Useable Pixels:	127554
+Useable Pixels(%):	58.7568
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	30
+Errors (Not measurable):	2737397
+Useable Pixels:	120683
+Useable Pixels(%):	55.5917
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	31
+Errors (Not measurable):	2843327
+Useable Pixels:	111158
+Useable Pixels(%):	51.2041
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	32
+Errors (Not measurable):	2951165
+Useable Pixels:	109250
+Useable Pixels(%):	50.3252
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	33
+Errors (Not measurable):	3061772
+Useable Pixels:	106481
+Useable Pixels(%):	49.0497
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	34
+Errors (Not measurable):	3174759
+Useable Pixels:	104101
+Useable Pixels(%):	47.9534
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	35
+Errors (Not measurable):	3290384
+Useable Pixels:	101463
+Useable Pixels(%):	46.7382
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	36
+Errors (Not measurable):	3407389
+Useable Pixels:	100083
+Useable Pixels(%):	46.1025
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	37
+Errors (Not measurable):	3524362
+Useable Pixels:	100115
+Useable Pixels(%):	46.1172
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	38
+Errors (Not measurable):	3636437
+Useable Pixels:	105013
+Useable Pixels(%):	48.3735
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	39
+Errors (Not measurable):	3745598
+Useable Pixels:	107927
+Useable Pixels(%):	49.7158
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	40
+Errors (Not measurable):	3853280
+Useable Pixels:	109406
+Useable Pixels(%):	50.3971
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	41
+Errors (Not measurable):	3959309
+Useable Pixels:	111059
+Useable Pixels(%):	51.1585
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	42
+Errors (Not measurable):	4062911
+Useable Pixels:	113486
+Useable Pixels(%):	52.2765
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	43
+Errors (Not measurable):	4165952
+Useable Pixels:	114047
+Useable Pixels(%):	52.5349
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	44
+Errors (Not measurable):	4268648
+Useable Pixels:	114392
+Useable Pixels(%):	52.6938
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	45
+Errors (Not measurable):	4372177
+Useable Pixels:	113559
+Useable Pixels(%):	52.3101
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	46
+Errors (Not measurable):	4476809
+Useable Pixels:	112456
+Useable Pixels(%):	51.802
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	47
+Errors (Not measurable):	4585087
+Useable Pixels:	108810
+Useable Pixels(%):	50.1225
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	48
+Errors (Not measurable):	4707964
+Useable Pixels:	94211
+Useable Pixels(%):	43.3976
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	49
+Errors (Not measurable):	4836976
+Useable Pixels:	88076
+Useable Pixels(%):	40.5716
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	50
+Errors (Not measurable):	4973930
+Useable Pixels:	80134
+Useable Pixels(%):	36.9131
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	51
+Errors (Not measurable):	5120001
+Useable Pixels:	71017
+Useable Pixels(%):	32.7135
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	52
+Errors (Not measurable):	5271971
+Useable Pixels:	65118
+Useable Pixels(%):	29.9961
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	53
+Errors (Not measurable):	5427604
+Useable Pixels:	61455
+Useable Pixels(%):	28.3088
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	54
+Errors (Not measurable):	5587299
+Useable Pixels:	57393
+Useable Pixels(%):	26.4377
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	55
+Errors (Not measurable):	5751187
+Useable Pixels:	53200
+Useable Pixels(%):	24.5062
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	56
+Errors (Not measurable):	5918596
+Useable Pixels:	49679
+Useable Pixels(%):	22.8843
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	57
+Errors (Not measurable):	6087559
+Useable Pixels:	48125
+Useable Pixels(%):	22.1684
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	58
+Errors (Not measurable):	6254673
+Useable Pixels:	49974
+Useable Pixels(%):	23.0202
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	59
+Errors (Not measurable):	6412697
+Useable Pixels:	59064
+Useable Pixels(%):	27.2074
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	60
+Errors (Not measurable):	6560091
+Useable Pixels:	69694
+Useable Pixels(%):	32.104
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	61
+Errors (Not measurable):	6681036
+Useable Pixels:	96143
+Useable Pixels(%):	44.2876
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	62
+Errors (Not measurable):	6790475
+Useable Pixels:	107649
+Useable Pixels(%):	49.5877
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	63
+Errors (Not measurable):	6890369
+Useable Pixels:	117194
+Useable Pixels(%):	53.9846
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	64
+Errors (Not measurable):	6982731
+Useable Pixels:	124726
+Useable Pixels(%):	57.4541
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	65
+Errors (Not measurable):	7069454
+Useable Pixels:	130365
+Useable Pixels(%):	60.0517
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	66
+Errors (Not measurable):	7150969
+Useable Pixels:	135573
+Useable Pixels(%):	62.4507
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	67
+Errors (Not measurable):	7228768
+Useable Pixels:	139289
+Useable Pixels(%):	64.1625
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	68
+Errors (Not measurable):	7302387
+Useable Pixels:	143469
+Useable Pixels(%):	66.0879
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	69
+Errors (Not measurable):	7372320
+Useable Pixels:	147155
+Useable Pixels(%):	67.7859
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	70
+Errors (Not measurable):	7439523
+Useable Pixels:	149885
+Useable Pixels(%):	69.0434
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	71
+Errors (Not measurable):	7504462
+Useable Pixels:	152149
+Useable Pixels(%):	70.0863
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	72
+Errors (Not measurable):	7567927
+Useable Pixels:	153623
+Useable Pixels(%):	70.7653
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	73
+Errors (Not measurable):	7629715
+Useable Pixels:	155300
+Useable Pixels(%):	71.5378
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	74
+Errors (Not measurable):	7690691
+Useable Pixels:	156112
+Useable Pixels(%):	71.9118
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	75
+Errors (Not measurable):	7750576
+Useable Pixels:	157203
+Useable Pixels(%):	72.4144
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	76
+Errors (Not measurable):	7809557
+Useable Pixels:	158107
+Useable Pixels(%):	72.8308
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	77
+Errors (Not measurable):	7868600
+Useable Pixels:	158045
+Useable Pixels(%):	72.8023
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	78
+Errors (Not measurable):	7928453
+Useable Pixels:	157235
+Useable Pixels(%):	72.4292
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	79
+Errors (Not measurable):	7988761
+Useable Pixels:	156780
+Useable Pixels(%):	72.2196
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	80
+Errors (Not measurable):	8049222
+Useable Pixels:	156627
+Useable Pixels(%):	72.1491
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	81
+Errors (Not measurable):	8110112
+Useable Pixels:	156198
+Useable Pixels(%):	71.9515
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	82
+Errors (Not measurable):	8174428
+Useable Pixels:	152772
+Useable Pixels(%):	70.3733
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	83
+Errors (Not measurable):	8246917
+Useable Pixels:	144599
+Useable Pixels(%):	66.6085
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	84
+Errors (Not measurable):	8333965
+Useable Pixels:	130040
+Useable Pixels(%):	59.902
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	85
+Errors (Not measurable):	8424423
+Useable Pixels:	126630
+Useable Pixels(%):	58.3312
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	86
+Errors (Not measurable):	8487029
+Useable Pixels:	154482
+Useable Pixels(%):	71.161
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	87
+Errors (Not measurable):	8523161
+Useable Pixels:	180956
+Useable Pixels(%):	83.3561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	88
+Errors (Not measurable):	8549998
+Useable Pixels:	190251
+Useable Pixels(%):	87.6377
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	89
+Errors (Not measurable):	8576477
+Useable Pixels:	190609
+Useable Pixels(%):	87.8026
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	90
+Errors (Not measurable):	8602181
+Useable Pixels:	191384
+Useable Pixels(%):	88.1596
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	91
+Errors (Not measurable):	8627234
+Useable Pixels:	192035
+Useable Pixels(%):	88.4595
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	92
+Errors (Not measurable):	8652559
+Useable Pixels:	191763
+Useable Pixels(%):	88.3342
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	93
+Errors (Not measurable):	8677884
+Useable Pixels:	191763
+Useable Pixels(%):	88.3342
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	94
+Errors (Not measurable):	8703762
+Useable Pixels:	191210
+Useable Pixels(%):	88.0795
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	95
+Errors (Not measurable):	8730480
+Useable Pixels:	190370
+Useable Pixels(%):	87.6926
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	96
+Errors (Not measurable):	8757839
+Useable Pixels:	189729
+Useable Pixels(%):	87.3973
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	97
+Errors (Not measurable):	8786117
+Useable Pixels:	188810
+Useable Pixels(%):	86.9739
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	98
+Errors (Not measurable):	8814877
+Useable Pixels:	188328
+Useable Pixels(%):	86.7519
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	99
+Errors (Not measurable):	8844306
+Useable Pixels:	187659
+Useable Pixels(%):	86.4437
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	100
+Errors (Not measurable):	8874045
+Useable Pixels:	187349
+Useable Pixels(%):	86.3009
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	101
+Errors (Not measurable):	8904216
+Useable Pixels:	186917
+Useable Pixels(%):	86.102
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	102
+Errors (Not measurable):	8934293
+Useable Pixels:	187011
+Useable Pixels(%):	86.1452
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	103
+Errors (Not measurable):	8964087
+Useable Pixels:	187294
+Useable Pixels(%):	86.2756
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	104
+Errors (Not measurable):	8993909
+Useable Pixels:	187266
+Useable Pixels(%):	86.2627
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	105
+Errors (Not measurable):	9023643
+Useable Pixels:	187354
+Useable Pixels(%):	86.3033
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	106
+Errors (Not measurable):	9053008
+Useable Pixels:	187723
+Useable Pixels(%):	86.4732
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	107
+Errors (Not measurable):	9082498
+Useable Pixels:	187598
+Useable Pixels(%):	86.4156
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	108
+Errors (Not measurable):	9111854
+Useable Pixels:	187732
+Useable Pixels(%):	86.4774
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	109
+Errors (Not measurable):	9141221
+Useable Pixels:	187721
+Useable Pixels(%):	86.4723
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	110
+Errors (Not measurable):	9170334
+Useable Pixels:	187975
+Useable Pixels(%):	86.5893
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	111
+Errors (Not measurable):	9199426
+Useable Pixels:	187996
+Useable Pixels(%):	86.599
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	112
+Errors (Not measurable):	9228643
+Useable Pixels:	187871
+Useable Pixels(%):	86.5414
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	113
+Errors (Not measurable):	9257892
+Useable Pixels:	187839
+Useable Pixels(%):	86.5267
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	114
+Errors (Not measurable):	9287071
+Useable Pixels:	187909
+Useable Pixels(%):	86.5589
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	115
+Errors (Not measurable):	9316141
+Useable Pixels:	188018
+Useable Pixels(%):	86.6091
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	116
+Errors (Not measurable):	9345180
+Useable Pixels:	188049
+Useable Pixels(%):	86.6234
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	117
+Errors (Not measurable):	9374432
+Useable Pixels:	187836
+Useable Pixels(%):	86.5253
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	118
+Errors (Not measurable):	9403732
+Useable Pixels:	187788
+Useable Pixels(%):	86.5032
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	119
+Errors (Not measurable):	9433027
+Useable Pixels:	187793
+Useable Pixels(%):	86.5055
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	120
+Errors (Not measurable):	9462547
+Useable Pixels:	187568
+Useable Pixels(%):	86.4018
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	121
+Errors (Not measurable):	9492092
+Useable Pixels:	187543
+Useable Pixels(%):	86.3903
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	122
+Errors (Not measurable):	9521339
+Useable Pixels:	187841
+Useable Pixels(%):	86.5276
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	123
+Errors (Not measurable):	9550588
+Useable Pixels:	187839
+Useable Pixels(%):	86.5267
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	124
+Errors (Not measurable):	9579882
+Useable Pixels:	187794
+Useable Pixels(%):	86.5059
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	125
+Errors (Not measurable):	9609142
+Useable Pixels:	187828
+Useable Pixels(%):	86.5216
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	126
+Errors (Not measurable):	9638479
+Useable Pixels:	187751
+Useable Pixels(%):	86.4861
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	127
+Errors (Not measurable):	9667576
+Useable Pixels:	187991
+Useable Pixels(%):	86.5967
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	128
+Errors (Not measurable):	9696767
+Useable Pixels:	187897
+Useable Pixels(%):	86.5534
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	129
+Errors (Not measurable):	9725855
+Useable Pixels:	188000
+Useable Pixels(%):	86.6008
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	130
+Errors (Not measurable):	9754943
+Useable Pixels:	188000
+Useable Pixels(%):	86.6008
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	131
+Errors (Not measurable):	9783954
+Useable Pixels:	188077
+Useable Pixels(%):	86.6363
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	132
+Errors (Not measurable):	9812906
+Useable Pixels:	188136
+Useable Pixels(%):	86.6635
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	133
+Errors (Not measurable):	9841721
+Useable Pixels:	188273
+Useable Pixels(%):	86.7266
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	134
+Errors (Not measurable):	9871037
+Useable Pixels:	187772
+Useable Pixels(%):	86.4958
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	135
+Errors (Not measurable):	9900005
+Useable Pixels:	188120
+Useable Pixels(%):	86.6561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	136
+Errors (Not measurable):	9928906
+Useable Pixels:	188187
+Useable Pixels(%):	86.687
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	137
+Errors (Not measurable):	9957635
+Useable Pixels:	188359
+Useable Pixels(%):	86.7662
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	138
+Errors (Not measurable):	9986489
+Useable Pixels:	188234
+Useable Pixels(%):	86.7086
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	139
+Errors (Not measurable):	10015314
+Useable Pixels:	188263
+Useable Pixels(%):	86.722
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	140
+Errors (Not measurable):	10044026
+Useable Pixels:	188376
+Useable Pixels(%):	86.774
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	141
+Errors (Not measurable):	10073088
+Useable Pixels:	188026
+Useable Pixels(%):	86.6128
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	142
+Errors (Not measurable):	10101873
+Useable Pixels:	188303
+Useable Pixels(%):	86.7404
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	143
+Errors (Not measurable):	10130641
+Useable Pixels:	188320
+Useable Pixels(%):	86.7482
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	144
+Errors (Not measurable):	10159462
+Useable Pixels:	188267
+Useable Pixels(%):	86.7238
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	145
+Errors (Not measurable):	10188250
+Useable Pixels:	188300
+Useable Pixels(%):	86.739
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	146
+Errors (Not measurable):	10217015
+Useable Pixels:	188323
+Useable Pixels(%):	86.7496
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	147
+Errors (Not measurable):	10245527
+Useable Pixels:	188576
+Useable Pixels(%):	86.8662
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	148
+Errors (Not measurable):	10274322
+Useable Pixels:	188293
+Useable Pixels(%):	86.7358
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	149
+Errors (Not measurable):	10303144
+Useable Pixels:	188266
+Useable Pixels(%):	86.7234
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	150
+Errors (Not measurable):	10331858
+Useable Pixels:	188374
+Useable Pixels(%):	86.7731
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	151
+Errors (Not measurable):	10360573
+Useable Pixels:	188373
+Useable Pixels(%):	86.7726
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	152
+Errors (Not measurable):	10389266
+Useable Pixels:	188395
+Useable Pixels(%):	86.7828
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	153
+Errors (Not measurable):	10418115
+Useable Pixels:	188239
+Useable Pixels(%):	86.7109
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	154
+Errors (Not measurable):	10446826
+Useable Pixels:	188377
+Useable Pixels(%):	86.7745
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	155
+Errors (Not measurable):	10475817
+Useable Pixels:	188097
+Useable Pixels(%):	86.6455
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	156
+Errors (Not measurable):	10504483
+Useable Pixels:	188422
+Useable Pixels(%):	86.7952
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	157
+Errors (Not measurable):	10533500
+Useable Pixels:	188071
+Useable Pixels(%):	86.6335
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	158
+Errors (Not measurable):	10562288
+Useable Pixels:	188300
+Useable Pixels(%):	86.739
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	159
+Errors (Not measurable):	10590925
+Useable Pixels:	188451
+Useable Pixels(%):	86.8086
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	160
+Errors (Not measurable):	10619603
+Useable Pixels:	188410
+Useable Pixels(%):	86.7897
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	161
+Errors (Not measurable):	10648625
+Useable Pixels:	188066
+Useable Pixels(%):	86.6312
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	162
+Errors (Not measurable):	10677462
+Useable Pixels:	188251
+Useable Pixels(%):	86.7164
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	163
+Errors (Not measurable):	10706211
+Useable Pixels:	188339
+Useable Pixels(%):	86.757
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	164
+Errors (Not measurable):	10735136
+Useable Pixels:	188163
+Useable Pixels(%):	86.6759
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	165
+Errors (Not measurable):	10763887
+Useable Pixels:	188337
+Useable Pixels(%):	86.7561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	166
+Errors (Not measurable):	10792619
+Useable Pixels:	188356
+Useable Pixels(%):	86.7648
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	167
+Errors (Not measurable):	10821584
+Useable Pixels:	188123
+Useable Pixels(%):	86.6575
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	168
+Errors (Not measurable):	10850425
+Useable Pixels:	188247
+Useable Pixels(%):	86.7146
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	169
+Errors (Not measurable):	10879326
+Useable Pixels:	188187
+Useable Pixels(%):	86.687
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	170
+Errors (Not measurable):	10908263
+Useable Pixels:	188151
+Useable Pixels(%):	86.6704
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	171
+Errors (Not measurable):	10936912
+Useable Pixels:	188439
+Useable Pixels(%):	86.803
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	172
+Errors (Not measurable):	10965770
+Useable Pixels:	188230
+Useable Pixels(%):	86.7068
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	173
+Errors (Not measurable):	10994570
+Useable Pixels:	188288
+Useable Pixels(%):	86.7335
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	174
+Errors (Not measurable):	11023450
+Useable Pixels:	188208
+Useable Pixels(%):	86.6966
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	175
+Errors (Not measurable):	11052331
+Useable Pixels:	188207
+Useable Pixels(%):	86.6962
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	176
+Errors (Not measurable):	11081336
+Useable Pixels:	188083
+Useable Pixels(%):	86.6391
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	177
+Errors (Not measurable):	11110200
+Useable Pixels:	188224
+Useable Pixels(%):	86.704
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	178
+Errors (Not measurable):	11139092
+Useable Pixels:	188196
+Useable Pixels(%):	86.6911
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	179
+Errors (Not measurable):	11167799
+Useable Pixels:	188381
+Useable Pixels(%):	86.7763
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	180
+Errors (Not measurable):	11196642
+Useable Pixels:	188245
+Useable Pixels(%):	86.7137
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	181
+Errors (Not measurable):	11225283
+Useable Pixels:	188447
+Useable Pixels(%):	86.8067
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	182
+Errors (Not measurable):	11254165
+Useable Pixels:	188206
+Useable Pixels(%):	86.6957
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	183
+Errors (Not measurable):	11283100
+Useable Pixels:	188153
+Useable Pixels(%):	86.6713
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	184
+Errors (Not measurable):	11311952
+Useable Pixels:	188236
+Useable Pixels(%):	86.7095
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	185
+Errors (Not measurable):	11340748
+Useable Pixels:	188292
+Useable Pixels(%):	86.7353
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	186
+Errors (Not measurable):	11369523
+Useable Pixels:	188313
+Useable Pixels(%):	86.745
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	187
+Errors (Not measurable):	11398358
+Useable Pixels:	188253
+Useable Pixels(%):	86.7174
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	188
+Errors (Not measurable):	11427237
+Useable Pixels:	188209
+Useable Pixels(%):	86.6971
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	189
+Errors (Not measurable):	11456216
+Useable Pixels:	188109
+Useable Pixels(%):	86.651
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	190
+Errors (Not measurable):	11485021
+Useable Pixels:	188283
+Useable Pixels(%):	86.7312
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	191
+Errors (Not measurable):	11513758
+Useable Pixels:	188351
+Useable Pixels(%):	86.7625
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	192
+Errors (Not measurable):	11542516
+Useable Pixels:	188330
+Useable Pixels(%):	86.7528
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	193
+Errors (Not measurable):	11571636
+Useable Pixels:	187968
+Useable Pixels(%):	86.5861
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	194
+Errors (Not measurable):	11600621
+Useable Pixels:	188103
+Useable Pixels(%):	86.6483
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	195
+Errors (Not measurable):	11629207
+Useable Pixels:	188502
+Useable Pixels(%):	86.8321
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	196
+Errors (Not measurable):	11658027
+Useable Pixels:	188268
+Useable Pixels(%):	86.7243
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	197
+Errors (Not measurable):	11686667
+Useable Pixels:	188448
+Useable Pixels(%):	86.8072
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	198
+Errors (Not measurable):	11715523
+Useable Pixels:	188232
+Useable Pixels(%):	86.7077
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	199
+Errors (Not measurable):	11744418
+Useable Pixels:	188193
+Useable Pixels(%):	86.6897
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	200
+Errors (Not measurable):	11773140
+Useable Pixels:	188366
+Useable Pixels(%):	86.7694
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	201
+Errors (Not measurable):	11801809
+Useable Pixels:	188419
+Useable Pixels(%):	86.7938
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	202
+Errors (Not measurable):	11830573
+Useable Pixels:	188324
+Useable Pixels(%):	86.7501
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	203
+Errors (Not measurable):	11859235
+Useable Pixels:	188426
+Useable Pixels(%):	86.7971
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	204
+Errors (Not measurable):	11887986
+Useable Pixels:	188337
+Useable Pixels(%):	86.7561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	205
+Errors (Not measurable):	11916631
+Useable Pixels:	188443
+Useable Pixels(%):	86.8049
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	206
+Errors (Not measurable):	11945587
+Useable Pixels:	188132
+Useable Pixels(%):	86.6616
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	207
+Errors (Not measurable):	11974495
+Useable Pixels:	188180
+Useable Pixels(%):	86.6837
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	208
+Errors (Not measurable):	12003264
+Useable Pixels:	188319
+Useable Pixels(%):	86.7478
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	209
+Errors (Not measurable):	12032095
+Useable Pixels:	188257
+Useable Pixels(%):	86.7192
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	210
+Errors (Not measurable):	12061085
+Useable Pixels:	188098
+Useable Pixels(%):	86.646
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	211
+Errors (Not measurable):	12089996
+Useable Pixels:	188177
+Useable Pixels(%):	86.6824
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	212
+Errors (Not measurable):	12118768
+Useable Pixels:	188316
+Useable Pixels(%):	86.7464
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	213
+Errors (Not measurable):	12147682
+Useable Pixels:	188174
+Useable Pixels(%):	86.681
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	214
+Errors (Not measurable):	12176670
+Useable Pixels:	188100
+Useable Pixels(%):	86.6469
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	215
+Errors (Not measurable):	12205575
+Useable Pixels:	188183
+Useable Pixels(%):	86.6851
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	216
+Errors (Not measurable):	12234547
+Useable Pixels:	188116
+Useable Pixels(%):	86.6543
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	217
+Errors (Not measurable):	12263534
+Useable Pixels:	188101
+Useable Pixels(%):	86.6473
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	218
+Errors (Not measurable):	12292168
+Useable Pixels:	188454
+Useable Pixels(%):	86.81
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	219
+Errors (Not measurable):	12320891
+Useable Pixels:	188365
+Useable Pixels(%):	86.769
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	220
+Errors (Not measurable):	12349660
+Useable Pixels:	188319
+Useable Pixels(%):	86.7478
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	221
+Errors (Not measurable):	12378547
+Useable Pixels:	188201
+Useable Pixels(%):	86.6934
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	222
+Errors (Not measurable):	12407322
+Useable Pixels:	188313
+Useable Pixels(%):	86.745
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	223
+Errors (Not measurable):	12436095
+Useable Pixels:	188315
+Useable Pixels(%):	86.7459
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	224
+Errors (Not measurable):	12465133
+Useable Pixels:	188050
+Useable Pixels(%):	86.6239
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	225
+Errors (Not measurable):	12493798
+Useable Pixels:	188423
+Useable Pixels(%):	86.7957
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	226
+Errors (Not measurable):	12522567
+Useable Pixels:	188319
+Useable Pixels(%):	86.7478
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	227
+Errors (Not measurable):	12551324
+Useable Pixels:	188331
+Useable Pixels(%):	86.7533
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	228
+Errors (Not measurable):	12580127
+Useable Pixels:	188285
+Useable Pixels(%):	86.7321
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	229
+Errors (Not measurable):	12608852
+Useable Pixels:	188363
+Useable Pixels(%):	86.768
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	230
+Errors (Not measurable):	12637925
+Useable Pixels:	188015
+Useable Pixels(%):	86.6077
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	231
+Errors (Not measurable):	12666664
+Useable Pixels:	188349
+Useable Pixels(%):	86.7616
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	232
+Errors (Not measurable):	12695416
+Useable Pixels:	188336
+Useable Pixels(%):	86.7556
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	233
+Errors (Not measurable):	12724629
+Useable Pixels:	187875
+Useable Pixels(%):	86.5432
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	234
+Errors (Not measurable):	12753526
+Useable Pixels:	188191
+Useable Pixels(%):	86.6888
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	235
+Errors (Not measurable):	12782484
+Useable Pixels:	188130
+Useable Pixels(%):	86.6607
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	236
+Errors (Not measurable):	12811465
+Useable Pixels:	188107
+Useable Pixels(%):	86.6501
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	237
+Errors (Not measurable):	12840569
+Useable Pixels:	187984
+Useable Pixels(%):	86.5935
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	238
+Errors (Not measurable):	12869551
+Useable Pixels:	188106
+Useable Pixels(%):	86.6497
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	239
+Errors (Not measurable):	12898320
+Useable Pixels:	188319
+Useable Pixels(%):	86.7478
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	240
+Errors (Not measurable):	12927095
+Useable Pixels:	188313
+Useable Pixels(%):	86.745
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	241
+Errors (Not measurable):	12955942
+Useable Pixels:	188241
+Useable Pixels(%):	86.7118
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	242
+Errors (Not measurable):	12984912
+Useable Pixels:	188118
+Useable Pixels(%):	86.6552
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	243
+Errors (Not measurable):	13013916
+Useable Pixels:	188084
+Useable Pixels(%):	86.6395
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	244
+Errors (Not measurable):	13042647
+Useable Pixels:	188357
+Useable Pixels(%):	86.7653
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	245
+Errors (Not measurable):	13071581
+Useable Pixels:	188154
+Useable Pixels(%):	86.6718
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	246
+Errors (Not measurable):	13100261
+Useable Pixels:	188408
+Useable Pixels(%):	86.7888
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	247
+Errors (Not measurable):	13128997
+Useable Pixels:	188352
+Useable Pixels(%):	86.763
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	248
+Errors (Not measurable):	13157788
+Useable Pixels:	188297
+Useable Pixels(%):	86.7376
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	249
+Errors (Not measurable):	13186583
+Useable Pixels:	188293
+Useable Pixels(%):	86.7358
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	250
+Errors (Not measurable):	13215502
+Useable Pixels:	188169
+Useable Pixels(%):	86.6787
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	251
+Errors (Not measurable):	13244253
+Useable Pixels:	188337
+Useable Pixels(%):	86.7561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	252
+Errors (Not measurable):	13273061
+Useable Pixels:	188280
+Useable Pixels(%):	86.7298
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	253
+Errors (Not measurable):	13301891
+Useable Pixels:	188258
+Useable Pixels(%):	86.7197
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	254
+Errors (Not measurable):	13330508
+Useable Pixels:	188471
+Useable Pixels(%):	86.8178
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	255
+Errors (Not measurable):	13359247
+Useable Pixels:	188349
+Useable Pixels(%):	86.7616
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	256
+Errors (Not measurable):	13388383
+Useable Pixels:	187952
+Useable Pixels(%):	86.5787
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	257
+Errors (Not measurable):	13417263
+Useable Pixels:	188208
+Useable Pixels(%):	86.6966
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	258
+Errors (Not measurable):	13446018
+Useable Pixels:	188333
+Useable Pixels(%):	86.7542
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	259
+Errors (Not measurable):	13474769
+Useable Pixels:	188337
+Useable Pixels(%):	86.7561
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	260
+Errors (Not measurable):	13503780
+Useable Pixels:	188077
+Useable Pixels(%):	86.6363
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	261
+Errors (Not measurable):	13532622
+Useable Pixels:	188246
+Useable Pixels(%):	86.7141
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	262
+Errors (Not measurable):	13561509
+Useable Pixels:	188201
+Useable Pixels(%):	86.6934
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	263
+Errors (Not measurable):	13590170
+Useable Pixels:	188427
+Useable Pixels(%):	86.7975
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	264
+Errors (Not measurable):	13619086
+Useable Pixels:	188172
+Useable Pixels(%):	86.6801
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	265
+Errors (Not measurable):	13648085
+Useable Pixels:	188089
+Useable Pixels(%):	86.6418
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	266
+Errors (Not measurable):	13676886
+Useable Pixels:	188287
+Useable Pixels(%):	86.733
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	267
+Errors (Not measurable):	13705787
+Useable Pixels:	188187
+Useable Pixels(%):	86.687
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	268
+Errors (Not measurable):	13734831
+Useable Pixels:	188044
+Useable Pixels(%):	86.6211
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	269
+Errors (Not measurable):	13763609
+Useable Pixels:	188310
+Useable Pixels(%):	86.7436
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	270
+Errors (Not measurable):	13792251
+Useable Pixels:	188446
+Useable Pixels(%):	86.8063
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	271
+Errors (Not measurable):	13820828
+Useable Pixels:	188511
+Useable Pixels(%):	86.8362
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	272
+Errors (Not measurable):	13849541
+Useable Pixels:	188375
+Useable Pixels(%):	86.7736
+CENTER Depth --> X: 1 Y: 54 Z: 0.5
+/***** Values per Frame *****/
+Frame:	273
+Errors (Not measurable):	13878345
+Useable Pixels:	188284
+Useable Pixels(%):	86.7317
+CENTER Depth --> X: 1 Y: 54 Z: 0.5

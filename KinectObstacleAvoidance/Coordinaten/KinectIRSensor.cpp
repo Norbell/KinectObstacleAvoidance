@@ -1,0 +1,10 @@
+#include <Windows.h>
+#include <Kinect.h>
+#include <fstream>  
+#include <float.h>
+#include <cmath>
+#include <iostream>
+#include <conio.h>
+#include <tchar.h>
+#include <string>
+#include <fstream>
