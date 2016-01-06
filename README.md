@@ -12,7 +12,8 @@ This project is developed using IntelliJ IDEA.
 * RxTX-Library
 * J4K 
 
-## Licence
-The project is published under the terms of the MIT-Licence.
 
-Third-Party libraries could possible be published under the terms of another licence.
+## LicenSe
+For license informations please take a look into the LICENSE.md file.
+
+This project uses third-party libraries. Please be aware that some of these projects are possibly licensed under diffrent terms.
