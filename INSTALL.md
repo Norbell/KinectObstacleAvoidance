@@ -1,12 +1,13 @@
 # Installation
 
+
 ## Required Hardware
 * Kinect for Windows v2 (or Kinect Sensor for Xbox One)
 * Arduino Uno
 * Seeed Studio Grove - Base Shield v1.2
 * 3x Seeed Studio Grove Vibration Motors
 
-Your system should at least comply with the system requirements of the Kinect-Sensor.
+** Your system should at least comply with the system requirements of the Kinect-Sensor.**
 
 
 ## Required Software
