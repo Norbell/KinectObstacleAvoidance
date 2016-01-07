@@ -3,9 +3,8 @@ import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.Enumeration;
 
 
@@ -15,7 +14,7 @@ public class FeedbackSystem implements SerialPortEventListener{
 
     private static final String PORT_NAMES[] = new PortNames().getPortNames();
 
-    private SerialPort serialPort = null;
+    SerialPort serialPort = null;
     private BufferedReader input;
     private OutputStream output;
 
@@ -23,12 +22,14 @@ public class FeedbackSystem implements SerialPortEventListener{
     private static final int DATA_RATE = 9600; // Arduino serial port
 
     // Vibration intensity steps
-    public final static Integer WARNING    = 255;
-    public final static Integer METER_1    = 225;
-    public final static Integer METER_1_5  = 200;
-    public final static Integer METER_2    = 175;
-    public final static Integer METER_2_5  = 150;
-    public final static Integer METER_3    = 100;
+    // Where the values 10-19 can be used for distances from 1m to 1,9m
+    // Where the values 20-29 can be used for distances from 2m to 2,9m
+    // Where the values 30-39 can be used for distances from 3m to 3,9m
+    public final static byte MOTOR_WARNING   = 100;  // Arduino-Value: 255
+    public final static byte MOTOR_OFF       = 0;    // Arduino-Value: 0
+    public final static byte METER_1   = 10;   // Arduino-Value: 200;
+    public final static byte METER_2   = 20;   // Arduino-Value: 150;
+    public final static byte METER_3   = 30;   // Arduino-Value: 100;
 
 
     /**
@@ -97,6 +98,23 @@ public class FeedbackSystem implements SerialPortEventListener{
 
 
     /**
+     * Send a byte[] array  to the device connected to serial por
+     * @param data
+     */
+    public void sendByteArray(byte[] data) {
+        try {
+            System.out.println("Sending byte[] array: '" + data.toString() +"'");
+            output = serialPort.getOutputStream();
+            output.write(data);
+        }
+        catch (Exception e) {
+            System.err.println(e.toString());
+            System.exit(0);
+        }
+    }
+
+
+    /**
      * Send integer data to the device connected to serial por
      * @param data
      */
@@ -119,7 +137,8 @@ public class FeedbackSystem implements SerialPortEventListener{
      */
     public void sendString(String data) {
         try {
-            System.out.println("Sending string data: '" + data +"'");
+            System.out.println(TAG+" --> Sending string data: '" + data +"'");
+            System.out.println(TAG+" --> "+data.getBytes().length);
             output = serialPort.getOutputStream();
             output.write(data.getBytes());
         }
@@ -214,6 +233,18 @@ public class FeedbackSystem implements SerialPortEventListener{
             System.out.println(TAG+" --> ERROR: No matching OS found!");
             return new String[] {};
         }
+    }
+
+    public byte[] intToBytes(int[] my_int) throws IOException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutput out = new ObjectOutputStream(bos);
+        out.writeInt(my_int[0]);
+        out.writeInt(my_int[1]);
+        out.writeInt(my_int[2]);
+        out.close();
+        byte[] int_bytes = bos.toByteArray();
+        bos.close();
+        return int_bytes;
     }
 }
 
