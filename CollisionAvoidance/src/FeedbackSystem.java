@@ -234,18 +234,6 @@ public class FeedbackSystem implements SerialPortEventListener{
             return new String[] {};
         }
     }
-
-    public byte[] intToBytes(int[] my_int) throws IOException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutput out = new ObjectOutputStream(bos);
-        out.writeInt(my_int[0]);
-        out.writeInt(my_int[1]);
-        out.writeInt(my_int[2]);
-        out.close();
-        byte[] int_bytes = bos.toByteArray();
-        bos.close();
-        return int_bytes;
-    }
 }
 
 

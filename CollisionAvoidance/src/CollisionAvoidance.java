@@ -1,32 +1,76 @@
-public class CollisionAvoidance {
-    private final static String TAG = "CollisionAvoidance";
+import sun.awt.FullScreenCapable;
 
-    private final static byte[] test = {
-            FeedbackSystem.MOTOR_WARNING,
-            FeedbackSystem.METER_1,
-            FeedbackSystem.MOTOR_OFF
-    };
-    private final static byte[] test2 = {
-            FeedbackSystem.METER_3,
-            FeedbackSystem.METER_3,
-            FeedbackSystem.METER_1
-    };
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-    public static void main(String[] args) throws Exception {
-        FeedbackSystem FbS = new FeedbackSystem();
-        if ( FbS.initialize() ) {
-            FbS.sendByteArray(test);
-            try { Thread.sleep(8000); } catch (InterruptedException ie) {}
-            FbS.sendByteArray(test2);
-            try { Thread.sleep(2000); } catch (InterruptedException ie) {}
-            FbS.close();
-        }
+public class CollisionAvoidance extends JFrame {
+    private final static String TITLE = "Kinec Collision Avoidance";
 
-        // Wait 5 seconds then shutdown
-        try {
-            Thread.sleep(2000);
-        } catch(InterruptedException ie) {
-            System.out.println(TAG +" : "+ ie.toString());
-        }
+    private FeedbackSystem fbs      = null;
+    private FeedbackSystemUI fbsUI  = null;
+
+    private JPanel mainPancel;
+    private JPanel topPanel;
+    private JButton b_FeedBackSystemUI;
+
+    public CollisionAvoidance() {
+        super(TITLE);
+
+        this.setSize(300,300);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLocation(100,100);
+        this.setLayout(new BorderLayout());
+
+        this.topPanel = new JPanel();
+        this.mainPancel = new JPanel();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                super.windowClosed(e);
+            }
+        } );
+
+
+        this.b_FeedBackSystemUI = new JButton("Feedback System");
+        this.b_FeedBackSystemUI.addActionListener(openFeedBackSystemUI());
+
+        this.topPanel.add(b_FeedBackSystemUI);
+
+        this.add(topPanel, BorderLayout.NORTH);
+        this.add(mainPancel, BorderLayout.CENTER);
+
+        this.fbs = new FeedbackSystem();
+/*        if ( this.fbs.initialize() ) {
+
+        };*/
+
+        this.setVisible(true);
+    }
+
+
+    public static void main(String[] args) {
+        new CollisionAvoidance();
+      /*  SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame caInstance = new
+            }
+        });*/
+    }
+
+
+    private ActionListener openFeedBackSystemUI() {
+        return e -> {
+            if( fbsUI != null) {
+                fbsUI.toFront();
+                fbsUI.requestFocus();
+            } else {
+                this.fbsUI = new FeedbackSystemUI(fbs);
+            }
+        };
     }
 }
