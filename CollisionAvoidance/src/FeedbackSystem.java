@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class FeedbackSystem implements SerialPortEventListener{
     private final static String TAG = "FeedbackSystem";
-    private final static String appName = "CollisionAvoidance";
+    private final static String appName = "CollisionAvoidanceUI";
 
     private static final String PORT_NAMES[] = new PortNames().getPortNames();
 

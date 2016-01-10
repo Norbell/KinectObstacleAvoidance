@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="RXTXcomm">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/CollisionAvoidance/lib/rxtx-2.1-7-bins-r2/RXTXcomm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/CollisionAvoidance/lib/RXTXcomm.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
