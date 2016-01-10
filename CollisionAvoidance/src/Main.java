@@ -9,5 +9,6 @@ public class Main {
                 ca.setVisible(true);
             }
         });
+        System.out.println(System.getProperty("user.dir"));
     }
 }

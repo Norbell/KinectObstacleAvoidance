@@ -25,7 +25,7 @@ public class FeedbackSystemUI extends JFrame{
         this.globalPanel.setLayout(new BorderLayout());
 
         this.setSize(new Dimension(500, 400));
-        this.setLocation(100,100);
+        this.setLocation(200,100);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         this.tarea_serialConsoleLog = new JTextArea();

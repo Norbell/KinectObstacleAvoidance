@@ -4,8 +4,8 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
 import java.io.*;
-import java.nio.ByteBuffer;
 import java.util.Enumeration;
+import java.util.Properties;
 
 
 public class FeedbackSystem implements SerialPortEventListener{
@@ -25,11 +25,21 @@ public class FeedbackSystem implements SerialPortEventListener{
     // Where the values 10-19 can be used for distances from 1m to 1,9m
     // Where the values 20-29 can be used for distances from 2m to 2,9m
     // Where the values 30-39 can be used for distances from 3m to 3,9m
-    public final static byte MOTOR_WARNING   = 100;  // Arduino-Value: 255
-    public final static byte MOTOR_OFF       = 0;    // Arduino-Value: 0
-    public final static byte METER_1   = 10;   // Arduino-Value: 200;
-    public final static byte METER_2   = 20;   // Arduino-Value: 150;
-    public final static byte METER_3   = 30;   // Arduino-Value: 100;
+    private final static byte DEFAULT_MOTOR_WARNING  = 100;  // Arduino-Value: 255
+    private final static byte DEFAULT_MOTOR_OFF      = 0;    // Arduino-Value: 0
+    private final static byte DEFAULT_METER_1        = 10;   // Arduino-Value: 200;
+    private final static byte DEFAULT_METER_2        = 20;   // Arduino-Value: 150;
+    private final static byte DEFAULT_METER_3        = 30;   // Arduino-Value: 100;
+
+    public static byte MOTOR_WARNING;
+    public static byte MOTOR_OFF;
+    public static byte METER_1;
+    public static byte METER_2;
+    public static byte METER_3;
+
+    public FeedbackSystem() {
+        readFBSProperties();
+    }
 
 
     /**
@@ -232,6 +242,57 @@ public class FeedbackSystem implements SerialPortEventListener{
 
             System.out.println(TAG+" --> ERROR: No matching OS found!");
             return new String[] {};
+        }
+    }
+
+
+    private void readFBSProperties() throws IllegalArgumentException {
+        Properties prop = new Properties();
+        InputStream input = null;
+
+        try {
+
+            input = new FileInputStream("feedbacksystem.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println("Found Properties: "+prop.size());
+
+            MOTOR_WARNING   = convPropValue(prop.getProperty("warning"));
+            MOTOR_OFF       = convPropValue(prop.getProperty("off"));
+            METER_1         = convPropValue(prop.getProperty("meter_1"));
+            METER_2         = convPropValue(prop.getProperty("meter_2"));
+            METER_3         = convPropValue(prop.getProperty("meter_3"));
+
+            System.out.println("New FeedbackSystem-Protocol intensity values loaded!");
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Using default values");
+            MOTOR_WARNING   = DEFAULT_MOTOR_WARNING;
+            MOTOR_OFF       = DEFAULT_MOTOR_OFF;
+            METER_1         = DEFAULT_METER_1;
+            METER_2         = DEFAULT_METER_2;
+            METER_3         = DEFAULT_METER_3;
+
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private byte convPropValue(String StringValue) throws Exception {
+        Byte b = new Byte(StringValue);
+        if( b >= 0 && b <= 127) {
+            return b;
+        } else {
+            throw new Exception("Propertie "+StringValue+" out of range (0 - 127)");
         }
     }
 }

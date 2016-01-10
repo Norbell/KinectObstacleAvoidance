@@ -2,8 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.EventObject;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -13,9 +16,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     private JPanel  controlPanel;
     private JPanel      buttonPanel;
 
-    private JTextField  ifield_IntensMotor1;
-    private JTextField  ifield_IntensMotor2;
-    private JTextField  ifield_IntensMotor3;
+    private JFormattedTextField input_LeftMotor;
+    private JFormattedTextField input_CenterMotor;
+    private JFormattedTextField input_RightMotor;
 
     private JButton     b_AllMotorsOff;
     private JButton     b_SendSerialMsg;
@@ -36,6 +39,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     private JLabel row1Meter;
     private JLabel row2Meter;
     private JLabel row3Meter;
+    private JLabel rowCustomize;
 
 
     public FeedbackSystemUIControlPanel(FeedbackSystem fbs) {
@@ -51,6 +55,10 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.leftMotorGroup     = new ButtonGroup();
         this.centerMotorGroup   = new ButtonGroup();
         this.rightMotorGroup    = new ButtonGroup();
+
+        this.input_LeftMotor    = getFilterdTField();
+        this.input_CenterMotor  = getFilterdTField();
+        this.input_RightMotor   = getFilterdTField();
 
         //Left Motor
         this.leftMotorRBList[0] = new JRadioButton();   //Off
@@ -76,6 +84,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.rightMotorRBList[4]    = new JRadioButton();   //3 Meter
         this.rightMotorRBList       = setRBNames(rightMotorRBList, "r");
 
+
         //Grid Labels
         this.columMotorLeft     = new JLabel("Left", SwingConstants.CENTER);
         this.columMotorCenter   = new JLabel("Center", SwingConstants.CENTER);
@@ -85,6 +94,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.row1Meter  = new JLabel("1 Meter", SwingConstants.RIGHT);
         this.row2Meter  = new JLabel("2 Meter", SwingConstants.RIGHT);
         this.row3Meter  = new JLabel("3 Meter", SwingConstants.RIGHT);
+        this.rowCustomize   = new JLabel("Customize", SwingConstants.RIGHT);
 
 
         //Defines the ActionListeners for the buttons
@@ -92,7 +102,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         b_AllMotorsOff.addActionListener(allMotorsOffAction());
 
         //Align Elements in Grid
-        alignRadioButtons();
+        setupRadioButtons();
 
         //Add RadioButton-Lists to individual ButtoGroups
         createRBGroups();
@@ -104,8 +114,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.buttonPanel.add(b_SendSerialMsg);
         this.buttonPanel.add(b_AllMotorsOff);
 
+
         //Assign JComponents to grid
-        controlPanel.setLayout(new GridLayout(6,4));
+        controlPanel.setLayout(new GridLayout(7,4));
         //Row 1
         controlPanel.add(new JLabel("",SwingConstants.CENTER));
         controlPanel.add(columMotorLeft);
@@ -142,14 +153,21 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         controlPanel.add(centerMotorRBList[4]);
         controlPanel.add(rightMotorRBList[4]);
 
+        //Row 7 - Customize
+        controlPanel.add(rowCustomize);
+        controlPanel.add(input_LeftMotor);
+        controlPanel.add(input_CenterMotor);
+        controlPanel.add(input_RightMotor);
+
+
         controlPanel.setAlignmentX(CENTER_ALIGNMENT);
-        controlPanel.setMinimumSize(new Dimension(400,200));
+        controlPanel.setMinimumSize(new Dimension(400,250));
 
         this.setLayout(new BorderLayout());
         this.add(controlPanel, BorderLayout.CENTER);
         this.add(buttonPanel, BorderLayout.SOUTH);
     }
-
+    
 
     /**
      * Creates ActionListener for Button "Turn all off"
@@ -182,6 +200,33 @@ public class FeedbackSystemUIControlPanel extends JPanel{
             };
 
             fbs.sendByteArray(msg);
+        };
+    }
+
+
+    /**
+     * Defines an ActionLister for RadioButtons.
+     * When ActionListener gets triggered it copy's the value of the currently selected RadioButton into the CustomTextField
+     * @return
+     */
+    private ActionListener getRBAction() {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Byte value;
+
+                //Left Row/Motor
+                value = getRadioButtonValue(leftMotorRBList);
+                input_LeftMotor.setText(value.toString());
+
+                //Center Row/Motor
+                value = getRadioButtonValue(centerMotorRBList);
+                input_CenterMotor.setText(value.toString());
+
+                //Right Row/Motor
+                value = getRadioButtonValue(rightMotorRBList);
+                input_RightMotor.setText(value.toString());
+            }
         };
     }
 
@@ -223,17 +268,20 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     /**
      * Align all RadioButtons horizontal center in Grid-Layout
      */
-    private void alignRadioButtons() {
-        for(int i=0; i < leftMotorRBList.length; i++) {
-            leftMotorRBList[i].setHorizontalAlignment(SwingConstants.CENTER);
+    private void setupRadioButtons() {
+        for (JRadioButton aLeftMotorRBList : leftMotorRBList) {
+            aLeftMotorRBList.setHorizontalAlignment(SwingConstants.CENTER);
+            aLeftMotorRBList.addActionListener(getRBAction());
         }
 
-        for(int i=0; i < centerMotorRBList.length; i++) {
-            centerMotorRBList[i].setHorizontalAlignment(SwingConstants.CENTER);
+        for (JRadioButton aCenterMotorRBList : centerMotorRBList) {
+            aCenterMotorRBList.setHorizontalAlignment(SwingConstants.CENTER);
+            aCenterMotorRBList.addActionListener(getRBAction());
         }
 
-        for(int i=0; i < rightMotorRBList.length; i++) {
-            rightMotorRBList[i].setHorizontalAlignment(SwingConstants.CENTER);
+        for (JRadioButton aRightMotorRBList : rightMotorRBList) {
+            aRightMotorRBList.setHorizontalAlignment(SwingConstants.CENTER);
+            aRightMotorRBList.addActionListener(getRBAction());
         }
     }
 
@@ -268,6 +316,27 @@ public class FeedbackSystemUIControlPanel extends JPanel{
                 rightMotorRBList[i].setSelected(false);
             }
         }
+
+        Byte offValue = FeedbackSystem.MOTOR_OFF;
+        input_LeftMotor.setText(offValue.toString());
+        input_CenterMotor.setText(offValue.toString());
+        input_RightMotor.setText(offValue.toString());
+    }
+
+
+    /**
+     * Creates an FormatedTextField with an applied DocumentFilter for numbers
+     * @return
+     */
+    public JFormattedTextField getFilterdTField(){
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+        DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
+        decimalFormat.setGroupingUsed(false);
+        decimalFormat.setMaximumIntegerDigits(3);
+        decimalFormat.setParseIntegerOnly(true);
+        JFormattedTextField textField =  new JFormattedTextField(decimalFormat);
+        textField.setHorizontalAlignment(JFormattedTextField.CENTER);
+        return textField;
     }
 
 
