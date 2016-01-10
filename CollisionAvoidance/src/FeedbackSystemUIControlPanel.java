@@ -193,12 +193,44 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      */
     private ActionListener sendSerialMsgAction() {
         return e -> {
-            byte[] msg = {
-                    getRadioButtonValue(leftMotorRBList),
-                    getRadioButtonValue(centerMotorRBList),
-                    getRadioButtonValue(rightMotorRBList)
-            };
+            byte left   = 0;
+            byte center = 0;
+            byte right  = 0;
 
+            try {
+                //Check LeftRow
+                if(isTFieldDiffFromRButton(leftMotorRBList, input_LeftMotor))  {
+                    left = getByteOfTField(input_LeftMotor);
+                    leftMotorGroup.clearSelection();
+                    System.out.println("Left is different");
+                } else {
+                    left = getRadioButtonValue(leftMotorRBList);
+                }
+
+                //Check CenterRow
+                if(isTFieldDiffFromRButton(centerMotorRBList, input_CenterMotor)) {
+                    center = getByteOfTField(input_CenterMotor);
+                    centerMotorGroup.clearSelection();
+                    System.out.println("Center is different");
+                } else {
+                    center = getRadioButtonValue(centerMotorRBList);
+                }
+
+                //Check RightRow
+                if(isTFieldDiffFromRButton(rightMotorRBList, input_RightMotor)) {
+                    right = getByteOfTField(input_RightMotor);
+                    rightMotorGroup.clearSelection();
+                    System.out.println("Right is different");
+                } else {
+                    right = getRadioButtonValue(rightMotorRBList);
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex.toString());
+                System.out.println(ex.getMessage());
+            }
+
+            byte[] msg = {left, center, right};
             fbs.sendByteArray(msg);
         };
     }
@@ -210,23 +242,20 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      * @return
      */
     private ActionListener getRBAction() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Byte value;
+        return e -> {
+            Byte value;
 
-                //Left Row/Motor
-                value = getRadioButtonValue(leftMotorRBList);
-                input_LeftMotor.setText(value.toString());
+            //Left Row/Motor
+            value = getRadioButtonValue(leftMotorRBList);
+            input_LeftMotor.setText(value.toString());
 
-                //Center Row/Motor
-                value = getRadioButtonValue(centerMotorRBList);
-                input_CenterMotor.setText(value.toString());
+            //Center Row/Motor
+            value = getRadioButtonValue(centerMotorRBList);
+            input_CenterMotor.setText(value.toString());
 
-                //Right Row/Motor
-                value = getRadioButtonValue(rightMotorRBList);
-                input_RightMotor.setText(value.toString());
-            }
+            //Right Row/Motor
+            value = getRadioButtonValue(rightMotorRBList);
+            input_RightMotor.setText(value.toString());
         };
     }
 
@@ -262,6 +291,29 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         }
 
         return list;
+    }
+
+
+    private boolean isTFieldDiffFromRButton(JRadioButton[] jrbList, JTextField tField) throws Exception {
+        for(JRadioButton aRButton : jrbList) {
+            Byte tFieldByte = getByteOfTField(tField);
+            Byte rbByte     = getRadioButtonValue(jrbList);
+
+            if(!tFieldByte.equals(rbByte) && tFieldByte >= 0 && tFieldByte <= 127){
+                return true;
+            } else if(tFieldByte.equals(rbByte) && tFieldByte >= 0 && tFieldByte <= 127) {
+                return false;
+            } else {
+                throw new Exception("Customized value has to be between 0 and 127");
+            }
+        }
+        return false;
+    }
+
+
+    private byte getByteOfTField(JTextField tField) {
+        Byte b = new Byte(tField.getText());
+        return b;
     }
 
 
@@ -328,7 +380,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      * Creates an FormatedTextField with an applied DocumentFilter for numbers
      * @return
      */
-    public JFormattedTextField getFilterdTField(){
+    private JFormattedTextField getFilterdTField(){
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
         DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
         decimalFormat.setGroupingUsed(false);
