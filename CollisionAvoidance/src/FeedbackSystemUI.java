@@ -7,25 +7,26 @@ import java.awt.event.WindowEvent;
 
 public class FeedbackSystemUI extends JFrame{
     private final static String TITLE = "Feedback System UI";
+    private JFrame thisFrame;
 
-    private FeedbackSystem fbsInstance;
+    private FeedbackSystem fbs;
 
     private JPanel globalPanel;
-    private FeedbackSystemUIControlPanel fbsControlPanel;
+    private JPanel fbsControlPanel;
     private JScrollPane consoleLogPanel;
 
     private JTextArea   tarea_serialConsoleLog;
 
-    public FeedbackSystemUI(FeedbackSystem fbs) {
+    public FeedbackSystemUI() {
         super(TITLE);
-        this.fbsInstance = fbs;
+        this.thisFrame = this;
 
         this.globalPanel = new JPanel();
         this.globalPanel.setLayout(new BorderLayout());
 
         this.setSize(new Dimension(500, 400));
         this.setLocation(100,100);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         this.tarea_serialConsoleLog = new JTextArea();
 
@@ -36,7 +37,10 @@ public class FeedbackSystemUI extends JFrame{
         tarea_serialConsoleLog.setFont(new Font("monospaced", Font.PLAIN, 12));
 
         //Add components to fbsControlPanel
-        this.fbsControlPanel = new FeedbackSystemUIControlPanel(fbsInstance);
+        this.fbs = new FeedbackSystem();
+        if (fbs.initialize()) {
+            this.fbsControlPanel = new FeedbackSystemUIControlPanel(fbs);
+        }
 
         //Add components to consoleLogPanel
         this.consoleLogPanel  = new JScrollPane(tarea_serialConsoleLog);
@@ -49,15 +53,24 @@ public class FeedbackSystemUI extends JFrame{
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
+                fbs.close();
+                thisFrame.dispose();
             }
 
             @Override
             public void windowClosed(WindowEvent e) {
                 super.windowClosed(e);
+                thisFrame.setVisible(false);
             }
         });
 
         this.add(globalPanel);
-        this.setVisible(true);
+        setVisible(true);
+    }
+
+
+    public void closeWindow() {
+        WindowEvent closingEvent = new WindowEvent(thisFrame, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closingEvent);
     }
 }

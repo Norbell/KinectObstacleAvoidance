@@ -1,75 +1,61 @@
-import sun.awt.FullScreenCapable;
-
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class CollisionAvoidance extends JFrame {
-    private final static String TITLE = "Kinec Collision Avoidance";
+    private final static String TITLE = "Collision Avoidance";
 
-    private FeedbackSystem fbs      = null;
+    private JFrame thisFrame        = null;
     private FeedbackSystemUI fbsUI  = null;
 
     private JPanel mainPancel;
     private JPanel topPanel;
-    private JButton b_FeedBackSystemUI;
+    private JButton b_OpenFeedBackSystemUI;
 
     public CollisionAvoidance() {
         super(TITLE);
+        this.thisFrame = this;
 
         this.setSize(300,300);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocation(100,100);
         this.setLayout(new BorderLayout());
 
-        this.topPanel = new JPanel();
+        this.topPanel   = new JPanel();
         this.mainPancel = new JPanel();
 
-        addWindowListener(new WindowAdapter() {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                thisFrame.dispose();
+            }
+
             @Override
             public void windowClosed(WindowEvent e) {
                 super.windowClosed(e);
+                thisFrame.setVisible(false);
+                System.exit(0);
             }
-        } );
+        });
 
+        this.b_OpenFeedBackSystemUI = new JButton("Feedback System");
+        this.b_OpenFeedBackSystemUI.addActionListener(openFeedBackSystemUIAction());
 
-        this.b_FeedBackSystemUI = new JButton("Feedback System");
-        this.b_FeedBackSystemUI.addActionListener(openFeedBackSystemUI());
-
-        this.topPanel.add(b_FeedBackSystemUI);
+        this.topPanel.add(b_OpenFeedBackSystemUI);
 
         this.add(topPanel, BorderLayout.NORTH);
         this.add(mainPancel, BorderLayout.CENTER);
-
-        this.fbs = new FeedbackSystem();
-/*        if ( this.fbs.initialize() ) {
-
-        };*/
-
-        this.setVisible(true);
     }
 
-
-    public static void main(String[] args) {
-        new CollisionAvoidance();
-      /*  SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrame caInstance = new
-            }
-        });*/
-    }
-
-
-    private ActionListener openFeedBackSystemUI() {
-        return e -> {
-            if( fbsUI != null) {
-                fbsUI.toFront();
-                fbsUI.requestFocus();
-            } else {
-                this.fbsUI = new FeedbackSystemUI(fbs);
+    private ActionListener openFeedBackSystemUIAction() {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fbsUI = new FeedbackSystemUI();
             }
         };
     }

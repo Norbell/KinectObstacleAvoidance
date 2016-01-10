@@ -8,9 +8,9 @@ import java.util.Map;
 
 
 public class FeedbackSystemUIControlPanel extends JPanel{
-    private FeedbackSystem fbs;
+    private FeedbackSystem fbs = null;
 
-    private JScrollBar  controlPanel;
+    private JPanel  controlPanel;
     private JPanel      buttonPanel;
 
     private JTextField  ifield_IntensMotor1;
@@ -28,9 +28,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     private JRadioButton[] centerMotorRBList    = new JRadioButton[5];
     private JRadioButton[] rightMotorRBList     = new JRadioButton[5];
 
-    private JLabel columMotor1;
-    private JLabel columMotor2;
-    private JLabel columMotor3;
+    private JLabel columMotorLeft;
+    private JLabel columMotorCenter;
+    private JLabel columMotorRight;
     private JLabel rowWarning;
     private JLabel rowOff;
     private JLabel row1Meter;
@@ -42,7 +42,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         super();
         this.fbs = fbs;
 
-        this.controlPanel   = new JScrollBar();
+        this.controlPanel   = new JPanel();
         this.buttonPanel    = new JPanel();
 
         this.b_AllMotorsOff     = new JButton("All motors off");
@@ -77,14 +77,14 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.rightMotorRBList       = setRBNames(rightMotorRBList, "r");
 
         //Grid Labels
-        this.columMotor1 = new JLabel("Left");
-        this.columMotor2 = new JLabel("Center");
-        this.columMotor3 = new JLabel("Right");
-        this.rowWarning = new JLabel("Warning (255)");
-        this.rowOff     = new JLabel("Off");
-        this.row1Meter  = new JLabel("1 Meter (200");
-        this.row2Meter  = new JLabel("2 Meter (175)");
-        this.row3Meter  = new JLabel("3 Meter (150");
+        this.columMotorLeft     = new JLabel("Left", SwingConstants.CENTER);
+        this.columMotorCenter   = new JLabel("Center", SwingConstants.CENTER);
+        this.columMotorRight    = new JLabel("Right", SwingConstants.CENTER);
+        this.rowWarning = new JLabel("Warning", SwingConstants.RIGHT);
+        this.rowOff     = new JLabel("Off", SwingConstants.RIGHT);
+        this.row1Meter  = new JLabel("1 Meter", SwingConstants.RIGHT);
+        this.row2Meter  = new JLabel("2 Meter", SwingConstants.RIGHT);
+        this.row3Meter  = new JLabel("3 Meter", SwingConstants.RIGHT);
 
 
         //Defines the ActionListeners for the buttons
@@ -93,9 +93,6 @@ public class FeedbackSystemUIControlPanel extends JPanel{
 
         //Align Elements in Grid
         alignRadioButtons();
-        columMotor1.setHorizontalAlignment(SwingConstants.CENTER);
-        columMotor2.setHorizontalAlignment(SwingConstants.CENTER);
-        columMotor3.setHorizontalAlignment(SwingConstants.CENTER);
 
         //Add RadioButton-Lists to individual ButtoGroups
         createRBGroups();
@@ -110,10 +107,10 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         //Assign JComponents to grid
         controlPanel.setLayout(new GridLayout(6,4));
         //Row 1
-        controlPanel.add(new JLabel());
-        controlPanel.add(columMotor1);
-        controlPanel.add(columMotor2);
-        controlPanel.add(columMotor3);
+        controlPanel.add(new JLabel("",SwingConstants.CENTER));
+        controlPanel.add(columMotorLeft);
+        controlPanel.add(columMotorCenter);
+        controlPanel.add(columMotorRight);
 
         //Row 2 - Off
         controlPanel.add(rowOff);
@@ -179,9 +176,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     private ActionListener sendSerialMsgAction() {
         return e -> {
             byte[] msg = {
-                getRadioButtonValue(leftMotorRBList),
-                getRadioButtonValue(centerMotorRBList),
-                getRadioButtonValue(rightMotorRBList)
+                    getRadioButtonValue(leftMotorRBList),
+                    getRadioButtonValue(centerMotorRBList),
+                    getRadioButtonValue(rightMotorRBList)
             };
 
             fbs.sendByteArray(msg);
