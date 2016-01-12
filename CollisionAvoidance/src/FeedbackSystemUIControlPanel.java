@@ -42,9 +42,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     private JLabel rowCustomize;
 
 
-    public FeedbackSystemUIControlPanel(FeedbackSystem fbs) {
+    public FeedbackSystemUIControlPanel() {
         super();
-        this.fbs = fbs;
+        this.fbs = FeedbackSystem.getInstance();
 
         this.controlPanel   = new JPanel();
         this.buttonPanel    = new JPanel();
@@ -175,14 +175,12 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      */
     private ActionListener allMotorsOffAction() {
         return e -> {
-            byte[] msg = {
-                    FeedbackSystem.MOTOR_OFF,
-                    FeedbackSystem.MOTOR_OFF,
-                    FeedbackSystem.MOTOR_OFF
-            };
-
-            fbs.sendByteArray(msg);
-            setAllToOff();
+            if( fbs.initialize()) {
+                fbs.sendMsg(FeedbackSystem.ALLOFF, FeedbackSystem.ALLOFF);
+                setAllToOff();
+            } else {
+                System.out.println("No data send! SerialPort not ready!");
+            }
         };
     }
 
@@ -230,8 +228,12 @@ public class FeedbackSystemUIControlPanel extends JPanel{
                 System.out.println(ex.getMessage());
             }
 
-            byte[] msg = {left, center, right};
-            fbs.sendByteArray(msg);
+            Byte[] msg = {left, center, right};
+            if( fbs.initialize()) {
+                fbs.sendDataArray(msg);
+            } else {
+                System.out.println("No data send! SerialPort not ready!");
+            }
         };
     }
 
@@ -311,9 +313,9 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     }
 
 
-    private byte getByteOfTField(JTextField tField) {
-        Byte b = new Byte(tField.getText());
-        return b;
+    private Byte getByteOfTField(JTextField tField) {
+        Byte i = new Byte(tField.getText());
+        return i;
     }
 
 
@@ -397,7 +399,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      * @param jrbList
      * @return
      */
-    private byte getRadioButtonValue(JRadioButton[] jrbList){
+    private Byte getRadioButtonValue(JRadioButton[] jrbList){
         for(int i=0; i < jrbList.length; i++) {
             //0 - Motor intensity - off
             if( i == 0 && jrbList[i].isSelected()) {

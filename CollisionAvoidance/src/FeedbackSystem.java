@@ -1,9 +1,12 @@
+import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.file.FileSystemLoopException;
 import java.util.Enumeration;
 import java.util.Properties;
 
@@ -25,20 +28,62 @@ public class FeedbackSystem implements SerialPortEventListener{
     // Where the values 10-19 can be used for distances from 1m to 1,9m
     // Where the values 20-29 can be used for distances from 2m to 2,9m
     // Where the values 30-39 can be used for distances from 3m to 3,9m
-    private final static byte DEFAULT_MOTOR_WARNING  = 100;  // Arduino-Value: 255
-    private final static byte DEFAULT_MOTOR_OFF      = 0;    // Arduino-Value: 0
-    private final static byte DEFAULT_METER_1        = 10;   // Arduino-Value: 200;
-    private final static byte DEFAULT_METER_2        = 20;   // Arduino-Value: 150;
-    private final static byte DEFAULT_METER_3        = 30;   // Arduino-Value: 100;
+    public final static byte ALLOFF                = 127;
+    private final static byte DEFAULT_MOTOR_OFF     = 0;    // Arduino-Value: 0
+    private final static byte DEFAULT_METER_1       = 1;
+    private final static byte DEFAULT_METER_1C5     = 2;
+    private final static byte DEFAULT_METER_2       = 3;
+    private final static byte DEFAULT_METER_2C5     = 4;
+    private final static byte DEFAULT_METER_3       = 5;
+    private final static byte DEFAULT_METER_3C5     = 6;
+    private final static byte DEFAULT_METER_4       = 7;
+    private final static byte DEFAULT_METER_4C5     = 8;
+    private final static byte DEFAULT_MOTOR_WARNING = 9;    // Arduino-Value: 255
 
-    public static byte MOTOR_WARNING;
+    private final static byte MOTOR_BASE_LEFT       = 10;
+    private final static byte MOTOR_BASE_CENTER     = 20;
+    private final static byte MOTOR_BASE_RIGHT      = 30;
+
     public static byte MOTOR_OFF;
     public static byte METER_1;
+    public static byte METER_1C5;
     public static byte METER_2;
+    public static byte METER_2C5;
     public static byte METER_3;
+    public static byte METER_3C5;
+    public static byte METER_4;
+    public static byte METER_4C5;
+    public static byte MOTOR_WARNING;
 
-    public FeedbackSystem() {
+    private static FeedbackSystem currentInstance = new FeedbackSystem();
+    private boolean isInitialized = false;
+
+
+    private FeedbackSystem() {
         readFBSProperties();
+        isInitialized = initialize();
+    }
+
+    /**
+     * Returns the Singletons-Instance of this class
+     * @return
+     */
+    public static FeedbackSystem getInstance() {
+        return currentInstance;
+    }
+
+    /**
+     * Check if SerialPort is already initialized;
+     * If not, then it will try to initialize a new connection to the SerialPort
+     * @return
+     */
+    public boolean initialize() {
+        if ( !isInitialized ) {
+            isInitialized = initializeSerialPort();
+            System.out.println("Initialize SerialPort: "+isInitialized);
+        }
+
+        return isInitialized;
     }
 
 
@@ -46,7 +91,7 @@ public class FeedbackSystem implements SerialPortEventListener{
      * Searches for an arduino serial port device and try's to establish a connection
      * @return
      */
-    public boolean initialize() {
+    private boolean initializeSerialPort() {
         try {
             CommPortIdentifier portId = null;
             Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
@@ -108,14 +153,89 @@ public class FeedbackSystem implements SerialPortEventListener{
 
 
     /**
-     * Send a byte[] array  to the device connected to serial por
-     * @param data
+     * Send Serialport messages. Creates a new thread for each message
+     * @param msg
      */
-    public void sendByteArray(byte[] data) {
+    public void sendDataArray(Byte[] msg) {
+        System.out.println("\n Bulk SerialPort-Message");
+        for(int i=0; i < msg.length ;i++) {
+            Byte byteMsg = 0;
+            System.out.print("P:"+i+" V:"+msg[i]+" --> ");
+
+            //Left Motor
+            if( i == 0) {
+                byteMsg = (byte)(MOTOR_BASE_LEFT+msg[i]);
+                System.out.println("Left Motor: "+byteMsg);
+                sendToSerialPort(byteMsg);
+            }
+
+            //Center Motor
+            if( i == 1 ) {
+                byteMsg = (byte)(MOTOR_BASE_CENTER+msg[i]);
+                System.out.println("Center Motor: "+byteMsg);
+                sendToSerialPort(byteMsg);
+            }
+
+            //Right Motor
+            if( i == 2 ) {
+                byteMsg = (byte)(MOTOR_BASE_RIGHT+msg[i]);
+                System.out.println("Right Motor: "+byteMsg);
+                sendToSerialPort(byteMsg);
+            }
+        }
+    }
+
+
+    /**
+     * This method gets called when only on motor needs to get updated
+     * @param msg
+     * @param base
+     */
+    public void sendMsg(Byte msg, Byte base) {
+        System.out.println("\n Single Motor Update");
+        Byte byteMsg = 0;
+
+        if( base == ALLOFF) {
+            System.out.println("All motors off!");
+            sendToSerialPort(ALLOFF);
+            return;
+        }
+
+        //Left Motor
+        if( base == MOTOR_BASE_LEFT) {
+            byteMsg = (byte)(base + msg);
+            System.out.println("Left Motor: "+byteMsg);
+            sendToSerialPort(byteMsg);
+            return;
+        }
+
+        //Center Motor
+        if( base == MOTOR_BASE_CENTER ) {
+            byteMsg = (byte)(base + msg);
+            System.out.println("Center Motor: "+byteMsg);
+            sendToSerialPort(byteMsg);
+            return;
+        }
+
+        //Right Motor
+        if( base == MOTOR_BASE_RIGHT ) {
+            byteMsg = (byte)(base + msg);
+            System.out.println("Right Motor: "+byteMsg);
+            sendToSerialPort(byteMsg);
+            return;
+        }
+    }
+
+
+    /**
+     * Send intensity value to SerialPort
+     * @param msg
+     */
+    private void sendToSerialPort(Byte msg){
         try {
-            System.out.println("Sending byte[] array: '" + data.toString() +"'");
+            //System.out.println("Sending byte[] array: '" + msg.toString() +"'");
             output = serialPort.getOutputStream();
-            output.write(data);
+            output.write(msg);
         }
         catch (Exception e) {
             System.err.println(e.toString());
@@ -125,36 +245,34 @@ public class FeedbackSystem implements SerialPortEventListener{
 
 
     /**
-     * Send integer data to the device connected to serial por
-     * @param data
+     * Handle serial port events
+     * @param oEvent
      */
-    public void sendInt(Integer data) {
+    public synchronized void serialEvent(SerialPortEvent oEvent) {
+        System.out.println("Event: "+ oEvent.getEventType() +" --> "+ oEvent.toString());
         try {
-            System.out.println("Sending int data: '" + data +"'");
-            output = serialPort.getOutputStream();
-            output.write(data.byteValue());
+            switch (oEvent.getEventType() ) {
+                case SerialPortEvent.DATA_AVAILABLE:
+                    if ( input == null ) {
+                        input = new BufferedReader(
+                                new InputStreamReader(
+                                        serialPort.getInputStream()));
+                    }
+                    if (input.ready()) {
+                        String inputLine = input.readLine();
+                        System.out.println(inputLine);
+                    }
+                    break;
+                case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
+                    System.out.println("Data send successfully!");
+                    break;
+                default:
+                    break;
+            }
         }
         catch (Exception e) {
             System.err.println(e.toString());
-            System.exit(0);
-        }
-    }
-
-
-    /**
-     * Send string data to the device connected to serial por
-     * @param data
-     */
-    public void sendString(String data) {
-        try {
-            System.out.println(TAG+" --> Sending string data: '" + data +"'");
-            System.out.println(TAG+" --> "+data.getBytes().length);
-            output = serialPort.getOutputStream();
-            output.write(data.getBytes());
-        }
-        catch (Exception e) {
-            System.err.println(e.toString());
-            System.exit(0);
+            System.err.println("Error in EventHandler!");
         }
     }
 
@@ -166,34 +284,8 @@ public class FeedbackSystem implements SerialPortEventListener{
         if ( serialPort != null ) {
             serialPort.removeEventListener();
             serialPort.close();
-        }
-    }
-
-
-    /**
-     * Handle serial port events
-     * @param oEvent
-     */
-    public synchronized void serialEvent(SerialPortEvent oEvent) {
-        //System.out.println("Event received: " + oEvent.toString());
-        try {
-            switch (oEvent.getEventType() ) {
-                case SerialPortEvent.DATA_AVAILABLE:
-                    if ( input == null ) {
-                        input = new BufferedReader(
-                                new InputStreamReader(
-                                        serialPort.getInputStream()));
-                    }
-                    String inputLine = input.readLine();
-                    System.out.println(inputLine);
-                    break;
-
-                default:
-                    break;
-            }
-        }
-        catch (Exception e) {
-            System.err.println(e.toString());
+            isInitialized = false;
+            input = null;
         }
     }
 
@@ -270,12 +362,16 @@ public class FeedbackSystem implements SerialPortEventListener{
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             System.out.println("Using default values");
+            MOTOR_OFF   = DEFAULT_MOTOR_OFF;
+            METER_1     = DEFAULT_METER_1;
+            METER_1C5   = DEFAULT_METER_1C5;
+            METER_2     = DEFAULT_METER_2;
+            METER_2C5   = DEFAULT_METER_2C5;
+            METER_3     = DEFAULT_METER_3;
+            METER_3C5   = DEFAULT_METER_3C5;
+            METER_4     = DEFAULT_METER_4;
+            METER_4C5   = DEFAULT_METER_4C5;
             MOTOR_WARNING   = DEFAULT_MOTOR_WARNING;
-            MOTOR_OFF       = DEFAULT_MOTOR_OFF;
-            METER_1         = DEFAULT_METER_1;
-            METER_2         = DEFAULT_METER_2;
-            METER_3         = DEFAULT_METER_3;
-
         } finally {
             if (input != null) {
                 try {

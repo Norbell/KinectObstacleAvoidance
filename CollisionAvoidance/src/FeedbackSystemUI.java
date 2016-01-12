@@ -37,10 +37,8 @@ public class FeedbackSystemUI extends JFrame{
         tarea_serialConsoleLog.setFont(new Font("monospaced", Font.PLAIN, 12));
 
         //Add components to fbsControlPanel
-        this.fbs = new FeedbackSystem();
-        if (fbs.initialize()) {
-            this.fbsControlPanel = new FeedbackSystemUIControlPanel(fbs);
-        }
+        this.fbs = FeedbackSystem.getInstance();
+        this.fbsControlPanel = new FeedbackSystemUIControlPanel();
 
         //Add components to consoleLogPanel
         this.consoleLogPanel  = new JScrollPane(tarea_serialConsoleLog);
@@ -53,7 +51,11 @@ public class FeedbackSystemUI extends JFrame{
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                fbs.close();
+                if(fbs.initialize()){
+                    fbs.close();
+                } else {
+                    System.out.println("SerialPort already disconnected");
+                }
                 thisFrame.dispose();
             }
 
