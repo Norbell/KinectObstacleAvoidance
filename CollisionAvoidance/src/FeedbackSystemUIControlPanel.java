@@ -175,7 +175,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      */
     private ActionListener allMotorsOffAction() {
         return e -> {
-            if( fbs.initialize()) {
+            if( fbs.isInitialized()) {
                 fbs.sendMsg(FeedbackSystem.ALLOFF, FeedbackSystem.ALLOFF);
                 setAllToOff();
             } else {
@@ -229,7 +229,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
             }
 
             Byte[] msg = {left, center, right};
-            if( fbs.initialize()) {
+            if( fbs.isInitialized()) {
                 fbs.sendDataArray(msg);
             } else {
                 System.out.println("No data send! SerialPort not ready!");
@@ -277,6 +277,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         for (int i = 0; i < rightMotorRBList.length; i++) {
             rightMotorGroup.add(rightMotorRBList[i]);
         }
+
     }
 
 

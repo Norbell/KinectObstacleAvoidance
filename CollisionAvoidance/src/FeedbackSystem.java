@@ -40,9 +40,9 @@ public class FeedbackSystem implements SerialPortEventListener{
     private final static byte DEFAULT_METER_4C5     = 8;
     private final static byte DEFAULT_MOTOR_WARNING = 9;    // Arduino-Value: 255
 
-    private final static byte MOTOR_BASE_LEFT       = 10;
-    private final static byte MOTOR_BASE_CENTER     = 20;
-    private final static byte MOTOR_BASE_RIGHT      = 30;
+    public final static byte MOTOR_BASE_LEFT       = 10;
+    public final static byte MOTOR_BASE_CENTER     = 20;
+    public final static byte MOTOR_BASE_RIGHT      = 30;
 
     public static byte MOTOR_OFF;
     public static byte METER_1;
@@ -61,7 +61,7 @@ public class FeedbackSystem implements SerialPortEventListener{
 
     private FeedbackSystem() {
         readFBSProperties();
-        isInitialized = initialize();
+        isInitialized = isInitialized();
     }
 
     /**
@@ -77,7 +77,7 @@ public class FeedbackSystem implements SerialPortEventListener{
      * If not, then it will try to initialize a new connection to the SerialPort
      * @return
      */
-    public boolean initialize() {
+    public boolean isInitialized() {
         if ( !isInitialized ) {
             isInitialized = initializeSerialPort();
             System.out.println("Initialize SerialPort: "+isInitialized);

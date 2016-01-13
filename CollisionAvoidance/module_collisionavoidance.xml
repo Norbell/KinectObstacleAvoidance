@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_collisionavoidance" default="compile.module.collisionavoidance">
+  <dirname property="module.collisionavoidance.basedir" file="${ant.file.module_collisionavoidance}"/>
+  
+  <property name="module.jdk.home.collisionavoidance" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.collisionavoidance" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.collisionavoidance" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.collisionavoidance" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="collisionavoidance.output.dir" value="${module.collisionavoidance.basedir}/../out/production/CollisionAvoidance"/>
+  <property name="collisionavoidance.testoutput.dir" value="${module.collisionavoidance.basedir}/../out/test/CollisionAvoidance"/>
+  
+  <path id="collisionavoidance.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="collisionavoidance.module.production.classpath">
+    <path refid="${module.jdk.classpath.collisionavoidance}"/>
+    <path refid="library.rxtxcomm.classpath"/>
+    <path refid="library.ufdw.classpath"/>
+    <path refid="library.ufwd-j4k-dll.classpath"/>
+    <path refid="library.jogl-all.classpath"/>
+    <path refid="library.gluegen-rt.classpath"/>
+    <path refid="library.jogl-all-natives-windows-amd64.classpath"/>
+    <path refid="library.gluegen-rt-natives-windows-amd64.classpath"/>
+  </path>
+  
+  <path id="collisionavoidance.runtime.production.module.classpath">
+    <pathelement location="${collisionavoidance.output.dir}"/>
+    <path refid="library.rxtxcomm.classpath"/>
+    <path refid="library.ufdw.classpath"/>
+    <path refid="library.ufwd-j4k-dll.classpath"/>
+    <path refid="library.jogl-all.classpath"/>
+    <path refid="library.gluegen-rt.classpath"/>
+    <path refid="library.jogl-all-natives-windows-amd64.classpath"/>
+    <path refid="library.gluegen-rt-natives-windows-amd64.classpath"/>
+  </path>
+  
+  <path id="collisionavoidance.module.classpath">
+    <path refid="${module.jdk.classpath.collisionavoidance}"/>
+    <pathelement location="${collisionavoidance.output.dir}"/>
+    <path refid="library.rxtxcomm.classpath"/>
+    <path refid="library.ufdw.classpath"/>
+    <path refid="library.ufwd-j4k-dll.classpath"/>
+    <path refid="library.jogl-all.classpath"/>
+    <path refid="library.gluegen-rt.classpath"/>
+    <path refid="library.jogl-all-natives-windows-amd64.classpath"/>
+    <path refid="library.gluegen-rt-natives-windows-amd64.classpath"/>
+  </path>
+  
+  <path id="collisionavoidance.runtime.module.classpath">
+    <pathelement location="${collisionavoidance.testoutput.dir}"/>
+    <pathelement location="${collisionavoidance.output.dir}"/>
+    <path refid="library.rxtxcomm.classpath"/>
+    <path refid="library.ufdw.classpath"/>
+    <path refid="library.ufwd-j4k-dll.classpath"/>
+    <path refid="library.jogl-all.classpath"/>
+    <path refid="library.gluegen-rt.classpath"/>
+    <path refid="library.jogl-all-natives-windows-amd64.classpath"/>
+    <path refid="library.gluegen-rt-natives-windows-amd64.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.collisionavoidance">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.collisionavoidance">
+    <patternset refid="excluded.from.module.collisionavoidance"/>
+  </patternset>
+  
+  <path id="collisionavoidance.module.sourcepath">
+    <dirset dir="${module.collisionavoidance.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.collisionavoidance" depends="compile.module.collisionavoidance.production,compile.module.collisionavoidance.tests" description="Compile module CollisionAvoidance"/>
+  
+  <target name="compile.module.collisionavoidance.production" depends="register.custom.compilers" description="Compile module CollisionAvoidance; production classes">
+    <mkdir dir="${collisionavoidance.output.dir}"/>
+    <javac2 destdir="${collisionavoidance.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.collisionavoidance}/javac">
+      <compilerarg line="${compiler.args.collisionavoidance}"/>
+      <bootclasspath refid="collisionavoidance.module.bootclasspath"/>
+      <classpath refid="collisionavoidance.module.production.classpath"/>
+      <src refid="collisionavoidance.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.collisionavoidance"/>
+    </javac2>
+    
+    <copy todir="${collisionavoidance.output.dir}">
+      <fileset dir="${module.collisionavoidance.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.collisionavoidance.tests" depends="register.custom.compilers,compile.module.collisionavoidance.production" description="compile module CollisionAvoidance; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.collisionavoidance" description="cleanup module">
+    <delete dir="${collisionavoidance.output.dir}"/>
+    <delete dir="${collisionavoidance.testoutput.dir}"/>
+  </target>
+</project>

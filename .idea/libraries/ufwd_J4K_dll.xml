@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ufwd-J4K-dll">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/CollisionAvoidance/lib" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>

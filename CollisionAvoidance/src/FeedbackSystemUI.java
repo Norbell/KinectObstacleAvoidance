@@ -24,7 +24,7 @@ public class FeedbackSystemUI extends JFrame{
         this.globalPanel = new JPanel();
         this.globalPanel.setLayout(new BorderLayout());
 
-        this.setSize(new Dimension(500, 400));
+        this.setSize(new Dimension(500, 300));
         this.setLocation(200,100);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
@@ -45,13 +45,13 @@ public class FeedbackSystemUI extends JFrame{
 
         //Add Sub-Panels to Global-Panel
         this.globalPanel.add(fbsControlPanel,BorderLayout.CENTER);
-        this.globalPanel.add(consoleLogPanel, BorderLayout.SOUTH);
+        //this.globalPanel.add(consoleLogPanel, BorderLayout.SOUTH);
 
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                if(fbs.initialize()){
+                if(fbs.isInitialized()){
                     fbs.close();
                 } else {
                     System.out.println("SerialPort already disconnected");

@@ -1,6 +1,6 @@
 int VibMotorLeft = 3;  //D3
-int VibMotorCenter = 5; //D5
-int VibMotorRight = 6;  //D6
+int VibMotorCenter = 6; //D5
+int VibMotorRight = 5;  //D6
 int led = 13;
 
 int const Off     = 0;
@@ -82,11 +82,11 @@ int getIntensity(int base, int msg) {
     return 200;
   }
 
-  if ( intensFilter == METER_2) {
-    return 170;
+  if ( intensFilter == METER_1C5) {
+    return 160;
   }
 
-  if ( intensFilter == METER_3) {
+  if ( intensFilter == METER_2) {
     return 120;
   }
 }
