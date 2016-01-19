@@ -3,22 +3,23 @@ int VibMotorCenter = 6; //D5
 int VibMotorRight = 5;  //D6
 int led = 13;
 
-int const Off     = 0;
-int const METER_1 = 1;
-int const METER_1C5 = 2;
-int const METER_2 =  3;
-int const METER_2C5 = 4;
-int const METER_3 = 5;
-int const METER_3C5 = 6;
-int const METER_4 = 7;
-int const METER_4C5 = 8;
+int const OFF = 0;
+int const ZONE1 = 1;
+int const ZONE2 = 2;
+int const ZONE3 =  3;
+int const ZONE4 = 4;
+int const ZONE5 = 5;
+int const ZONE6 = 6;
+int const ZONE7 = 7;
+int const ZONE8 = 8;
 int const WARNING = 9;
+
+int const ALLOFF = 127;
 
 int const MOTOR_LEFT  = 10;
 int const MOTOR_CENTER = 20;
 int const MOTOR_RIGHT = 30;
 
-int const ALLOFF = 127;
 
 void setup()  {
   Serial.begin(9600);
@@ -74,19 +75,19 @@ int getIntensity(int base, int msg) {
     return 255;
   }
 
-  if ( intensFilter == Off ) {
+  if ( intensFilter == OFF ) {
     return 0;
   }
 
-  if ( intensFilter == METER_1) {
+  if ( intensFilter == ZONE1) {
     return 200;
   }
 
-  if ( intensFilter == METER_1C5) {
+  if ( intensFilter == ZONE2) {
     return 160;
   }
 
-  if ( intensFilter == METER_2) {
+  if ( intensFilter == ZONE3) {
     return 120;
   }
 }

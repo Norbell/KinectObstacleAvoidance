@@ -40,6 +40,8 @@ public class FeedbackSystemUI extends JFrame{
         this.fbs = FeedbackSystem.getInstance();
         this.fbsControlPanel = new FeedbackSystemUIControlPanel();
 
+        fbs.setDebugMode(true);
+
         //Add components to consoleLogPanel
         this.consoleLogPanel  = new JScrollPane(tarea_serialConsoleLog);
 
@@ -52,6 +54,7 @@ public class FeedbackSystemUI extends JFrame{
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 if(fbs.isInitialized()){
+                    fbs.setDebugMode(false);
                     fbs.close();
                 } else {
                     System.out.println("SerialPort already disconnected");

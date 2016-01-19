@@ -4,7 +4,7 @@ import edu.ufl.digitalworlds.j4k.J4KSDK;
 public class CollisionAvoidance extends J4KSDK {
     private final static String TAG = "CollisionAvoidance";
     private final static byte MICROSOFT_KINECT_2 = 0x2;
-    private float minDepth = (float)0.5;
+    public static float MIN_DEPTH = (float)0.5;
 
     private Integer LEFT_COL_WIDTH    = 170;
     private Integer CENTER_COl_WIDTH  = 172;
@@ -17,6 +17,10 @@ public class CollisionAvoidance extends J4KSDK {
     private Integer infraHeight = getInfraredHeight();
 
     private Float   maxDepth;
+    private Float   warningZone;
+    private Float   zone1;
+    private Float   zone2;
+    private Float   zone3;
     private Integer leftBorder;
     private Integer rightBorder;
 
@@ -26,14 +30,16 @@ public class CollisionAvoidance extends J4KSDK {
 
     private long frameCounter = 0;
 
-    public CollisionAvoidance(ViewerPanel3D viewport, float maxDepth, int leftBorder, int rightBorder) {
+    public CollisionAvoidance(ViewerPanel3D viewport, float maxDepth, float warningZone,float zone1, float zone2, float zone3) {
         super(MICROSOFT_KINECT_2);
 
         System.out.println("Created CollisionAvoidance UI");
         this.viewer      = viewport;
         this.maxDepth    = maxDepth;
-        this.leftBorder  = leftBorder;
-        this.rightBorder = rightBorder;
+        this.warningZone    = warningZone;
+        this.zone1          = zone1;
+        this.zone2          = zone2;
+        this.zone3          = zone3;
 
         this.fbs = FeedbackSystem.getInstance();
     }
@@ -43,7 +49,7 @@ public class CollisionAvoidance extends J4KSDK {
     public void onDepthFrameEvent(short[] depth_frame, byte[] body_index, float[] xyz, float[] uv) {
         //System.out.println("Frame Number:"+frameCounter);
         DepthMap map = new DepthMap( this.getDepthWidth(), this.getDepthHeight(), xyz);
-        map.setMaximumAllowedDeltaZ(minDepth);
+        map.setMaximumAllowedDeltaZ(MIN_DEPTH);
         map.maskZ(maxDepth);
         if(uv != null) {
             map.setUV(uv);
@@ -51,15 +57,17 @@ public class CollisionAvoidance extends J4KSDK {
             map.setUVuniform();
         }
 
-        if(frameCounter == 14){
+        //Only update FeedbackSystem after 10 frames (Kinect v2 = 30fps)
+        if(frameCounter == 9){
             filterDepthFrame(map);
             frameCounter = 0;
         }
 
+        /*
         if(leftBorder != 0 || rightBorder != 0) {
             int recWidth = this.getDepthWidth()-leftBorder-rightBorder;
             map.maskRect(leftBorder, 0,recWidth, this.getDepthHeight());
-        }
+        }*/
 
         //map.setUVuniform();
         frameCounter++;
@@ -144,7 +152,7 @@ public class CollisionAvoidance extends J4KSDK {
 
 
     private boolean isZCloser(float z, float closestZ){
-        if(z >= minDepth && z <= maxDepth) {
+        if(z >= MIN_DEPTH && z <= maxDepth) {
             if(z < closestZ){
                 return true;
             }
@@ -158,45 +166,49 @@ public class CollisionAvoidance extends J4KSDK {
         //System.out.println("MotorBase: "+motorBase+" --> "+z);
         if(fbs.isInitialized()){
             // Warning
-            if(z > minDepth && z < 0.8) {
-                fbs.sendMsg(FeedbackSystem.MOTOR_WARNING, motorBase);
+            if(z >= MIN_DEPTH && z < (MIN_DEPTH + warningZone)) {
+                fbs.sendMsg(FeedbackSystem.WARNING, motorBase);
             }
 
-            //1 Meter
-            if(z >= 0.8 && z < 1.2) {
-                fbs.sendMsg(FeedbackSystem.METER_1, motorBase);
+            // ZOne 1
+            if(z >= (MIN_DEPTH + warningZone) && z < ((MIN_DEPTH + warningZone + zone1))) {
+                fbs.sendMsg(FeedbackSystem.ZONE1, motorBase);
             }
 
             //1,5 Meter
-            if(z >= 1.2 && z < 1.6 ) {
-                fbs.sendMsg(FeedbackSystem.METER_1C5, motorBase);
+            if(z >= (MIN_DEPTH + warningZone + zone1) && z < (MIN_DEPTH + warningZone + zone1 + zone2)) {
+                fbs.sendMsg(FeedbackSystem.ZONE2, motorBase);
             }
 
             //2 Meter
-            if(z >= 1.6 && z < maxDepth ){
-                fbs.sendMsg(FeedbackSystem.METER_2, motorBase);
+            if(z >= (MIN_DEPTH + warningZone + zone1 + zone2) && z < (MIN_DEPTH + warningZone + zone1 + zone2 + zone3)){
+                fbs.sendMsg(FeedbackSystem.ZONE3, motorBase);
             }
 
             //Motor Off
             if(z == 0 || z >= maxDepth){
-                fbs.sendMsg(FeedbackSystem.MOTOR_OFF, motorBase);
+                fbs.sendMsg(FeedbackSystem.OFF, motorBase);
             }
         }
     }
 
 
     /**
-     * Update the settings of the depthFrame
+     *  Update the settings of the depthFrame
      * @param maxDepth
-     * @param leftBorder
-     * @param rightBorder
      * @param showVideo
+     * @param warningZone
+     * @param zone1
+     * @param zone2
+     * @param zone3
      */
-    public void update(float maxDepth, int leftBorder, int rightBorder, boolean showVideo) {
+    public void update(float maxDepth, boolean showVideo, float warningZone,float zone1, float zone2, float zone3) {
         this.maxDepth = maxDepth;
-        this.leftBorder = leftBorder;
-        this.rightBorder = rightBorder;
         this.viewer.setShowVideo(showVideo);
+        this.warningZone    = warningZone;
+        this.zone1          = zone1;
+        this.zone2          = zone2;
+        this.zone3          = zone3;
     }
 
 
@@ -209,6 +221,5 @@ public class CollisionAvoidance extends J4KSDK {
         }
         fbs.close();
         this.stop();
-        this.viewer = null;
     }
 }

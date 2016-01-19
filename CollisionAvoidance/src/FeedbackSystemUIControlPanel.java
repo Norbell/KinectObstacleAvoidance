@@ -63,25 +63,25 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         //Left Motor
         this.leftMotorRBList[0] = new JRadioButton();   //Off
         this.leftMotorRBList[1] = new JRadioButton();   //Warning
-        this.leftMotorRBList[2] = new JRadioButton();   //1 Meter
-        this.leftMotorRBList[3] = new JRadioButton();   //2 Meter
-        this.leftMotorRBList[4] = new JRadioButton();   //3 Meter
+        this.leftMotorRBList[2] = new JRadioButton();   //ZOne 1
+        this.leftMotorRBList[3] = new JRadioButton();   //Zone 2
+        this.leftMotorRBList[4] = new JRadioButton();   //Zone 3
         this.leftMotorRBList = setRBNames(leftMotorRBList, "l");
 
         //Center Motor
         this.centerMotorRBList[0]   = new JRadioButton();   //Off
         this.centerMotorRBList[1]   = new JRadioButton();   //Warning
-        this.centerMotorRBList[2]   = new JRadioButton();   //1 Meter
-        this.centerMotorRBList[3]   = new JRadioButton();   //2 Meter
-        this.centerMotorRBList[4]   = new JRadioButton();   //3 Meter
+        this.centerMotorRBList[2]   = new JRadioButton();   //ZOne 1
+        this.centerMotorRBList[3]   = new JRadioButton();   //Zone 2
+        this.centerMotorRBList[4]   = new JRadioButton();   //Zone 3
         this.centerMotorRBList      = setRBNames(centerMotorRBList, "c");
 
         //Right Motor
         this.rightMotorRBList[0]    = new JRadioButton();   //Off
         this.rightMotorRBList[1]    = new JRadioButton();   //Warning
-        this.rightMotorRBList[2]    = new JRadioButton();   //1 Meter
-        this.rightMotorRBList[3]    = new JRadioButton();   //2 Meter
-        this.rightMotorRBList[4]    = new JRadioButton();   //3 Meter
+        this.rightMotorRBList[2]    = new JRadioButton();   //ZOne 1
+        this.rightMotorRBList[3]    = new JRadioButton();   //ZOne 2
+        this.rightMotorRBList[4]    = new JRadioButton();   //ZOne 3
         this.rightMotorRBList       = setRBNames(rightMotorRBList, "r");
 
 
@@ -91,10 +91,10 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         this.columMotorRight    = new JLabel("Right", SwingConstants.CENTER);
         this.rowWarning = new JLabel("Warning", SwingConstants.RIGHT);
         this.rowOff     = new JLabel("Off", SwingConstants.RIGHT);
-        this.row1Meter  = new JLabel("1 Meter", SwingConstants.RIGHT);
-        this.row2Meter  = new JLabel("2 Meter", SwingConstants.RIGHT);
-        this.row3Meter  = new JLabel("3 Meter", SwingConstants.RIGHT);
-        this.rowCustomize   = new JLabel("Customize", SwingConstants.RIGHT);
+        this.row1Meter  = new JLabel("Zone 1", SwingConstants.RIGHT);
+        this.row2Meter  = new JLabel("Zone 2", SwingConstants.RIGHT);
+        this.row3Meter  = new JLabel("Zone 3", SwingConstants.RIGHT);
+        this.rowCustomize   = new JLabel("Customize ", SwingConstants.RIGHT);
 
 
         //Defines the ActionListeners for the buttons
@@ -161,7 +161,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
 
 
         controlPanel.setAlignmentX(CENTER_ALIGNMENT);
-        controlPanel.setMinimumSize(new Dimension(400,250));
+        controlPanel.setMinimumSize(new Dimension(400,300));
 
         this.setLayout(new BorderLayout());
         this.add(controlPanel, BorderLayout.CENTER);
@@ -197,30 +197,30 @@ public class FeedbackSystemUIControlPanel extends JPanel{
 
             try {
                 //Check LeftRow
-                if(isTFieldDiffFromRButton(leftMotorRBList, input_LeftMotor))  {
+                if(isTFieldDiffFromRButton(leftMotorRBList, input_LeftMotor, FeedbackSystem.MOTOR_BASE_LEFT))  {
                     left = getByteOfTField(input_LeftMotor);
                     leftMotorGroup.clearSelection();
                     System.out.println("Left is different");
                 } else {
-                    left = getRadioButtonValue(leftMotorRBList);
+                    left = getRadioButtonValue(leftMotorRBList, FeedbackSystem.MOTOR_BASE_LEFT);
                 }
 
                 //Check CenterRow
-                if(isTFieldDiffFromRButton(centerMotorRBList, input_CenterMotor)) {
+                if(isTFieldDiffFromRButton(centerMotorRBList, input_CenterMotor, FeedbackSystem.MOTOR_BASE_CENTER)) {
                     center = getByteOfTField(input_CenterMotor);
                     centerMotorGroup.clearSelection();
                     System.out.println("Center is different");
                 } else {
-                    center = getRadioButtonValue(centerMotorRBList);
+                    center = getRadioButtonValue(centerMotorRBList, FeedbackSystem.MOTOR_BASE_CENTER);
                 }
 
                 //Check RightRow
-                if(isTFieldDiffFromRButton(rightMotorRBList, input_RightMotor)) {
+                if(isTFieldDiffFromRButton(rightMotorRBList, input_RightMotor, FeedbackSystem.MOTOR_BASE_RIGHT)) {
                     right = getByteOfTField(input_RightMotor);
                     rightMotorGroup.clearSelection();
                     System.out.println("Right is different");
                 } else {
-                    right = getRadioButtonValue(rightMotorRBList);
+                    right = getRadioButtonValue(rightMotorRBList, FeedbackSystem.MOTOR_BASE_RIGHT);
                 }
 
             } catch (Exception ex) {
@@ -228,9 +228,10 @@ public class FeedbackSystemUIControlPanel extends JPanel{
                 System.out.println(ex.getMessage());
             }
 
-            Byte[] msg = {left, center, right};
             if( fbs.isInitialized()) {
-                fbs.sendDataArray(msg);
+                fbs.sendMsg(left);
+                fbs.sendMsg(center);
+                fbs.sendMsg(right);
             } else {
                 System.out.println("No data send! SerialPort not ready!");
             }
@@ -248,15 +249,15 @@ public class FeedbackSystemUIControlPanel extends JPanel{
             Byte value;
 
             //Left Row/Motor
-            value = getRadioButtonValue(leftMotorRBList);
+            value = getRadioButtonValue(leftMotorRBList, FeedbackSystem.MOTOR_BASE_LEFT);
             input_LeftMotor.setText(value.toString());
 
             //Center Row/Motor
-            value = getRadioButtonValue(centerMotorRBList);
+            value = getRadioButtonValue(centerMotorRBList, FeedbackSystem.MOTOR_BASE_CENTER);
             input_CenterMotor.setText(value.toString());
 
             //Right Row/Motor
-            value = getRadioButtonValue(rightMotorRBList);
+            value = getRadioButtonValue(rightMotorRBList, FeedbackSystem.MOTOR_BASE_RIGHT);
             input_RightMotor.setText(value.toString());
         };
     }
@@ -297,10 +298,10 @@ public class FeedbackSystemUIControlPanel extends JPanel{
     }
 
 
-    private boolean isTFieldDiffFromRButton(JRadioButton[] jrbList, JTextField tField) throws Exception {
+    private boolean isTFieldDiffFromRButton(JRadioButton[] jrbList, JTextField tField, Byte base) throws Exception {
         for(JRadioButton aRButton : jrbList) {
             Byte tFieldByte = getByteOfTField(tField);
-            Byte rbByte     = getRadioButtonValue(jrbList);
+            Byte rbByte     = getRadioButtonValue(jrbList, base);
 
             if(!tFieldByte.equals(rbByte) && tFieldByte >= 0 && tFieldByte <= 127){
                 return true;
@@ -372,9 +373,14 @@ public class FeedbackSystemUIControlPanel extends JPanel{
             }
         }
 
-        Byte offValue = FeedbackSystem.MOTOR_OFF;
+        Byte offValue;
+        offValue = (byte) (FeedbackSystem.MOTOR_BASE_LEFT+FeedbackSystem.OFF);
         input_LeftMotor.setText(offValue.toString());
+
+        offValue = (byte) (FeedbackSystem.MOTOR_BASE_CENTER+FeedbackSystem.OFF);
         input_CenterMotor.setText(offValue.toString());
+
+        offValue = (byte) (FeedbackSystem.MOTOR_BASE_RIGHT+FeedbackSystem.OFF);
         input_RightMotor.setText(offValue.toString());
     }
 
@@ -391,6 +397,7 @@ public class FeedbackSystemUIControlPanel extends JPanel{
         decimalFormat.setParseIntegerOnly(true);
         JFormattedTextField textField =  new JFormattedTextField(decimalFormat);
         textField.setHorizontalAlignment(JFormattedTextField.CENTER);
+        textField.setColumns(5);
         return textField;
     }
 
@@ -400,31 +407,31 @@ public class FeedbackSystemUIControlPanel extends JPanel{
      * @param jrbList
      * @return
      */
-    private Byte getRadioButtonValue(JRadioButton[] jrbList){
+    private Byte getRadioButtonValue(JRadioButton[] jrbList, Byte base){
         for(int i=0; i < jrbList.length; i++) {
             //0 - Motor intensity - off
             if( i == 0 && jrbList[i].isSelected()) {
-                return FeedbackSystem.MOTOR_OFF;
+                return (byte)(base+FeedbackSystem.OFF);
             }
 
             //1 - Motor intensity - Warning
             if( i == 1 && jrbList[i].isSelected()) {
-                return FeedbackSystem.MOTOR_WARNING;
+                return (byte)(base+FeedbackSystem.WARNING);
             }
 
-            //2 - Motor intensity - 1 Meter
+            //2 - Motor intensity - ZOne 1r
             if( i == 2 && jrbList[i].isSelected()) {
-                return FeedbackSystem.METER_1;
+                return (byte)(base+FeedbackSystem.ZONE1);
             }
 
-            //3 - Motor intensity - 2 Meter
+            //3 - Motor intensity - Zone 2
             if( i == 3 && jrbList[i].isSelected()) {
-                return FeedbackSystem.METER_2;
+                return (byte)(base+FeedbackSystem.ZONE2);
             }
 
-            //4 - Motor intensity - 3 Meter
+            //4 - Motor intensity - Zone 3
             if( i == 4 && jrbList[i].isSelected()) {
-                return FeedbackSystem.METER_3;
+                return (byte)(base+FeedbackSystem.ZONE3);
             }
         }
 

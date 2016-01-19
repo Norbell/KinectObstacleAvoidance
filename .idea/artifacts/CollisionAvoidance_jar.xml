@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="CollisionAvoidance:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CollisionAvoidance_jar</output-path>
+    <root id="root">
+      <element id="archive" name="CollisionAvoidance.jar">
+        <element id="module-output" name="CollisionAvoidance" />
+      </element>
+      <element id="directory" name="libs">
+        <element id="library" level="project" name="gluegen-rt-natives-windows-amd64" />
+        <element id="library" level="project" name="jogl-all-natives-windows-amd64" />
+        <element id="library" level="project" name="gluegen-rt" />
+        <element id="library" level="project" name="jogl-all" />
+        <element id="library" level="project" name="RXTXcomm" />
+        <element id="library" level="project" name="ufdw" />
+        <element id="library" level="application" name="ufwd-J4K-dll" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -24,36 +24,38 @@ public class FeedbackSystem implements SerialPortEventListener{
     private static final int TIME_OUT = 1000; // Port open timeout
     private static final int DATA_RATE = 9600; // Arduino serial port
 
+    private boolean debugMode = false;
+
     // Vibration intensity steps
     // Where the values 10-19 can be used for distances from 1m to 1,9m
     // Where the values 20-29 can be used for distances from 2m to 2,9m
     // Where the values 30-39 can be used for distances from 3m to 3,9m
     public final static byte ALLOFF                = 127;
-    private final static byte DEFAULT_MOTOR_OFF     = 0;    // Arduino-Value: 0
-    private final static byte DEFAULT_METER_1       = 1;
-    private final static byte DEFAULT_METER_1C5     = 2;
-    private final static byte DEFAULT_METER_2       = 3;
-    private final static byte DEFAULT_METER_2C5     = 4;
-    private final static byte DEFAULT_METER_3       = 5;
-    private final static byte DEFAULT_METER_3C5     = 6;
-    private final static byte DEFAULT_METER_4       = 7;
-    private final static byte DEFAULT_METER_4C5     = 8;
-    private final static byte DEFAULT_MOTOR_WARNING = 9;    // Arduino-Value: 255
+    private final static byte DEFAULT_OFF = 0;    // Arduino-Value: 0
+    private final static byte DEFAULT_ZONE1 = 1;
+    private final static byte DEFAULT_ZONE2 = 2;
+    private final static byte DEFAULT_ZONE3 = 3;
+    private final static byte DEFAULT_ZONE4 = 4;
+    private final static byte DEFAULT_ZONE5 = 5;
+    private final static byte DEFAULT_ZONE6 = 6;
+    private final static byte DEFAULT_ZONE7 = 7;
+    private final static byte DEFAULT_ZONE8 = 8;
+    private final static byte DEFAULT_WARNING = 9;    // Arduino-Value: 255
 
     public final static byte MOTOR_BASE_LEFT       = 10;
     public final static byte MOTOR_BASE_CENTER     = 20;
     public final static byte MOTOR_BASE_RIGHT      = 30;
 
-    public static byte MOTOR_OFF;
-    public static byte METER_1;
-    public static byte METER_1C5;
-    public static byte METER_2;
-    public static byte METER_2C5;
-    public static byte METER_3;
-    public static byte METER_3C5;
-    public static byte METER_4;
-    public static byte METER_4C5;
-    public static byte MOTOR_WARNING;
+    public static byte OFF;
+    public static byte ZONE1;
+    public static byte ZONE2;
+    public static byte ZONE3;
+    public static byte ZONE4;
+    public static byte ZONE5;
+    public static byte ZONE6;
+    public static byte ZONE7;
+    public static byte ZONE8;
+    public static byte WARNING;
 
     private static FeedbackSystem currentInstance = new FeedbackSystem();
     private boolean isInitialized = false;
@@ -156,33 +158,9 @@ public class FeedbackSystem implements SerialPortEventListener{
      * Send Serialport messages. Creates a new thread for each message
      * @param msg
      */
-    public void sendDataArray(Byte[] msg) {
-        System.out.println("\n Bulk SerialPort-Message");
-        for(int i=0; i < msg.length ;i++) {
-            Byte byteMsg = 0;
-            System.out.print("P:"+i+" V:"+msg[i]+" --> ");
-
-            //Left Motor
-            if( i == 0) {
-                byteMsg = (byte)(MOTOR_BASE_LEFT+msg[i]);
-                System.out.println("Left Motor: "+byteMsg);
-                sendToSerialPort(byteMsg);
-            }
-
-            //Center Motor
-            if( i == 1 ) {
-                byteMsg = (byte)(MOTOR_BASE_CENTER+msg[i]);
-                System.out.println("Center Motor: "+byteMsg);
-                sendToSerialPort(byteMsg);
-            }
-
-            //Right Motor
-            if( i == 2 ) {
-                byteMsg = (byte)(MOTOR_BASE_RIGHT+msg[i]);
-                System.out.println("Right Motor: "+byteMsg);
-                sendToSerialPort(byteMsg);
-            }
-        }
+    public void sendMsg(Byte byteMsg) {
+        if (debugMode) System.out.println("\n Bulk SerialPort-Message");
+        sendToSerialPort(byteMsg);
     }
 
 
@@ -192,7 +170,7 @@ public class FeedbackSystem implements SerialPortEventListener{
      * @param base
      */
     public void sendMsg(Byte msg, Byte base) {
-        System.out.println("\n Single Motor Update");
+        //System.out.println("\n Single Motor Update");
         Byte byteMsg = 0;
 
         if( base == ALLOFF) {
@@ -204,7 +182,7 @@ public class FeedbackSystem implements SerialPortEventListener{
         //Left Motor
         if( base == MOTOR_BASE_LEFT) {
             byteMsg = (byte)(base + msg);
-            System.out.println("Left Motor: "+byteMsg);
+            if (debugMode) System.out.println("Left Motor: "+byteMsg);
             sendToSerialPort(byteMsg);
             return;
         }
@@ -212,7 +190,7 @@ public class FeedbackSystem implements SerialPortEventListener{
         //Center Motor
         if( base == MOTOR_BASE_CENTER ) {
             byteMsg = (byte)(base + msg);
-            System.out.println("Center Motor: "+byteMsg);
+            if (debugMode) System.out.println("Center Motor: "+byteMsg);
             sendToSerialPort(byteMsg);
             return;
         }
@@ -220,7 +198,7 @@ public class FeedbackSystem implements SerialPortEventListener{
         //Right Motor
         if( base == MOTOR_BASE_RIGHT ) {
             byteMsg = (byte)(base + msg);
-            System.out.println("Right Motor: "+byteMsg);
+            if (debugMode) System.out.println("Right Motor: "+byteMsg);
             sendToSerialPort(byteMsg);
             return;
         }
@@ -233,7 +211,7 @@ public class FeedbackSystem implements SerialPortEventListener{
      */
     private void sendToSerialPort(Byte msg){
         try {
-            //System.out.println("Sending byte[] array: '" + msg.toString() +"'");
+            if (debugMode) System.out.println("Sending Byte-Value: '" + msg.toString() +"'");
             output = serialPort.getOutputStream();
             output.write(msg);
         }
@@ -249,7 +227,7 @@ public class FeedbackSystem implements SerialPortEventListener{
      * @param oEvent
      */
     public synchronized void serialEvent(SerialPortEvent oEvent) {
-        System.out.println("Event: "+ oEvent.getEventType() +" --> "+ oEvent.toString());
+        if (debugMode) System.out.println("Event: "+ oEvent.getEventType() +" --> "+ oEvent.toString());
         try {
             switch (oEvent.getEventType() ) {
                 case SerialPortEvent.DATA_AVAILABLE:
@@ -287,6 +265,14 @@ public class FeedbackSystem implements SerialPortEventListener{
             isInitialized = false;
             input = null;
         }
+    }
+
+    public boolean isDebugMode() {
+        return debugMode;
+    }
+
+    public void setDebugMode(boolean debugMode) {
+        this.debugMode = debugMode;
     }
 
 
@@ -351,27 +337,32 @@ public class FeedbackSystem implements SerialPortEventListener{
 
             System.out.println("Found Properties: "+prop.size());
 
-            MOTOR_WARNING   = convPropValue(prop.getProperty("warning"));
-            MOTOR_OFF       = convPropValue(prop.getProperty("off"));
-            METER_1         = convPropValue(prop.getProperty("meter_1"));
-            METER_2         = convPropValue(prop.getProperty("meter_2"));
-            METER_3         = convPropValue(prop.getProperty("meter_3"));
+            WARNING = convPropValue(prop.getProperty("WARNING"));
+            OFF     = convPropValue(prop.getProperty("OFF"));
+            ZONE1   = convPropValue(prop.getProperty("ZONE1"));
+            ZONE2   = convPropValue(prop.getProperty("ZONE2"));
+            ZONE3   = convPropValue(prop.getProperty("ZONE3"));
+            ZONE4   = convPropValue(prop.getProperty("ZONE4"));
+            ZONE5   = convPropValue(prop.getProperty("ZONE5"));
+            ZONE6   = convPropValue(prop.getProperty("ZONE6"));
+            ZONE7   = convPropValue(prop.getProperty("ZONE7"));
+            ZONE8   = convPropValue(prop.getProperty("ZONE8"));
 
             System.out.println("New FeedbackSystem-Protocol intensity values loaded!");
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             System.out.println("Using default values");
-            MOTOR_OFF   = DEFAULT_MOTOR_OFF;
-            METER_1     = DEFAULT_METER_1;
-            METER_1C5   = DEFAULT_METER_1C5;
-            METER_2     = DEFAULT_METER_2;
-            METER_2C5   = DEFAULT_METER_2C5;
-            METER_3     = DEFAULT_METER_3;
-            METER_3C5   = DEFAULT_METER_3C5;
-            METER_4     = DEFAULT_METER_4;
-            METER_4C5   = DEFAULT_METER_4C5;
-            MOTOR_WARNING   = DEFAULT_MOTOR_WARNING;
+            OFF     = FeedbackSystem.DEFAULT_OFF;
+            ZONE1   = FeedbackSystem.DEFAULT_ZONE1;
+            ZONE2   = FeedbackSystem.DEFAULT_ZONE2;
+            ZONE3   = FeedbackSystem.DEFAULT_ZONE3;
+            ZONE4   = FeedbackSystem.DEFAULT_ZONE4;
+            ZONE5   = FeedbackSystem.DEFAULT_ZONE5;
+            ZONE6   = FeedbackSystem.DEFAULT_ZONE6;
+            ZONE7   = FeedbackSystem.DEFAULT_ZONE7;
+            ZONE8   = FeedbackSystem.DEFAULT_ZONE8;
+            WARNING = FeedbackSystem.DEFAULT_WARNING;
         } finally {
             if (input != null) {
                 try {
