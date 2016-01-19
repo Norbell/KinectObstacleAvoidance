@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: jogl-all-natives-windows-amd64.jar ufdw.jar gluegen-rt.jar
+  RXTXcomm.jar jogl-all.jar gluegen-rt-natives-windows-amd64.jar
+Main-Class: CollisionAvoidance.Main
+
