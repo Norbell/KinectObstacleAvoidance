@@ -1,5 +1,5 @@
 # Kinect Collision Avoidance Project
-This project was created as part of an
+This project was created as part of an internship.
 
 
 ## Installation
@@ -14,4 +14,4 @@ This project is developed using IntelliJ IDEA.
 
 
 ## LicenSe
-For license informations please take a look into the LICENSE.md file.
+MIT Licensed. See LICENSE file for details.
